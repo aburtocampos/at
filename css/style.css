@@ -33,14 +33,20 @@ p{
 }
 
 .topheader a i{
-	padding-top: 11px;
+	padding: 6px;
 }
 
 .topheader{
-
+height: 30px;
 	width: 100%;
-	background-color: #028173;
-		min-height: 30px;
+	background-color:  #014d45;
+		max-height: 30px;
+		border-bottom: 1px solid #4da69d;
+}
+
+.linea{
+	width: 95%;
+	border: 1px solid #4da69d;
 }
 
 .topheader p{
@@ -92,14 +98,30 @@ p{
 	padding-bottom: 1rem;
 }
 
+.btn-outline-secondary{
+	color:#014d45;
+    border: 1px solid  #014d45;
+}
+
+.btn-outline-secondary:hover{
+	background-color: #014d45;
+	color:white;
+}
+
+
+.btn-outline-light:hover{
+	color: :#014d45;
+
+}
+
 .btn-primary{
-	background-color: #6648b1;
-	border: 1px solid #6648b1;
+	background-color: var(--verde);
+	border: 1px solid var(--verde);
 }
 
 .btn-primary:hover{
-	background-color: #563d7c;
-	border: 1px solid #563d7c;
+	background-color: #014d45;
+	border: 1px solid  #014d45;
 }
 
 .jumbotron{
