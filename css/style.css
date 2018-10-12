@@ -84,7 +84,7 @@ height: 30px;
 
 .carousel-caption{
 	position: absolute;
-	top: 50%;
+	top: 35%;
 	transform: translateY(-50%);
 }
 
