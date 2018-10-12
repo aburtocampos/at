@@ -198,7 +198,7 @@ footer a{
 }
 
 @media(max-width: 768px){
-
+ 
 		.bg-transparent{
 			background-color: var(--verde)!important;
 		}
