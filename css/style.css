@@ -199,7 +199,19 @@ footer a{
 
 @media(max-width: 768px){
  
-		.bg-transparent{
+		
+
+
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+		.carousel-caption{
+			position: absolute;
+			top: 45%;
+		}
+	
+	.bg-transparent{
 			background-color: var(--verde)!important;
 		}
 
@@ -238,22 +250,15 @@ footer a{
 	
 	        .tt{
 		    position:relative !important;
-		    padding-top: 75px!important;
+		    padding-top: 75px !important;
 		}
-
-
+	
+	
+	
 
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-		.carousel-caption{
-			position: absolute;
-			top: 45%;
-		}
-
-}
-
-@media(max-width: 576px){
+@media(max-width: 575.9px){
 		.carousel-caption{
 			position: absolute;
 			top: 30%;
