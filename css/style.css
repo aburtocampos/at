@@ -223,7 +223,7 @@ footer a{
 		}
 		.carousel-caption{
 			position: absolute;
-			top: 26%;
+			top: 32%;
 		}
 
 		.carousel-caption h1{
@@ -261,7 +261,7 @@ footer a{
 @media(max-width: 575.9px){
 		.carousel-caption{
 			position: absolute;
-			top: 30%;
+			top: 42%;
 		}
 	
 		.carousel-caption h1{
