@@ -199,7 +199,9 @@ footer a{
 
 @media(max-width: 768px){
  
-		
+		.topheader{
+	    	display: none;
+	    }
 
 
 
@@ -215,10 +217,8 @@ footer a{
 			background-color: var(--verde)!important;
 		}
 
-	    .topheader{
-	    	display: none;
-	    }
-	    .t{
+	    
+	      .t{
 			margin-top: 0px
 		}
 		.carousel-caption{
