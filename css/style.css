@@ -258,6 +258,7 @@ footer a{
 			position: absolute;
 			top: 30%;
 		}
+	
 		.carousel-caption h1{
 			font-size: 150%;
 			text-transform: uppercase;
@@ -272,10 +273,15 @@ footer a{
 		}
 
 		.carousel-caption h4{
+			display:none;
 			font-size: 70%;
 			font-weight: 500;
 			text-shadow: 1px 1px 10px #000;
 			padding-bottom: .2rem;
+		}
+	
+		.carousel-caption pu{
+			display:none;
 		}
 
 		.carousel-caption .btn{
