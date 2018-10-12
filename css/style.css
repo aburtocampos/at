@@ -73,7 +73,7 @@ height: 30px;
 }
 
 .tt{
-    position:static !important;
+    position: relative !important;
     padding-top: 105px!important;
 }
 
@@ -237,7 +237,7 @@ footer a{
 		}
 	
 	        .tt{
-		    position:static !important;
+		    position:relative !important;
 		    padding-top: 75px!important;
 		}
 
@@ -256,7 +256,7 @@ footer a{
 @media(max-width: 576px){
 		.carousel-caption{
 			position: absolute;
-			top: 40%;
+			top: 30%;
 		}
 		.carousel-caption h1{
 			font-size: 150%;
