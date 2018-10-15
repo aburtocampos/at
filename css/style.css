@@ -4,6 +4,12 @@
 :root {
     --transparent-verde: rgba(2,129,115,.5); 
     --verde: rgb(2,129,115); 
+    --verde1:#028173;
+    --facebook:#3b5998;
+    --twitter:#55acee;
+    --whatsapp:#4dc247;
+
+
 }
 
 html,body{
@@ -11,7 +17,24 @@ html,body{
 	width: 100%;
 	font-family: 'Righteous', Poppins;
 	color: #222;
+	min-height: 100%;
 }
+
+h1,h2,h3,h4{
+	font-family: 'Righteous', Poppins;
+}
+
+#vhome.topview{
+			padding-top: 0px !important;
+		}
+#vabout.topview,
+		#vblog.topview,
+		#vcontact.topview,
+		#vaddpost.topview
+		{
+			padding-top: 105px !important;
+		}
+
 
 p{
 	font-family: 'Poppins';
@@ -39,10 +62,24 @@ p{
 .topheader{
 height: 30px;
 	width: 100%;
-	background-color:  #014d45;
+	background-color:  #3f3f3f;
 		max-height: 30px;
 		border-bottom: 1px solid #4da69d;
 }
+
+.topheader .nav-link{
+	padding: 1px 10px;
+    margin: 0 auto;
+}
+
+.topheader .nav-item:hover{
+	background-color: var(--verde1)!important;
+}
+
+#footersocial a.nav-link i:hover{
+	color: var(--verde1)!important;
+}
+
 
 .linea{
 	width: 95%;
@@ -66,16 +103,14 @@ height: 30px;
 
 .nav-link{
 	font-size: 1.1em !important;
+    font-family: 'Poppins';
 }
 
 .bg-transparent{
 	background-color: var(--verde)!important;
 }
 
-.tt{
-    position: relative !important;
-    padding-top: 105px!important;
-}
+
 
 .carousel-inner img{
 	width: 100%;
@@ -84,7 +119,7 @@ height: 30px;
 
 .carousel-caption{
 	position: absolute;
-	top: 35%;
+	top: 50%;
 	transform: translateY(-50%);
 }
 
@@ -177,9 +212,9 @@ footer a{
     filter: invert(100%);
 }
 
-
-
-
+.footer{
+	bottom: 0px;
+}
 
 
 
@@ -198,32 +233,25 @@ footer a{
 }
 
 @media(max-width: 768px){
- 
-		.topheader{
-	    	display: none;
-	    }
 
-
-
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-		.carousel-caption{
-			position: absolute;
-			top: 45%;
-		}
-	
-	.bg-transparent{
+		.bg-transparent{
 			background-color: var(--verde)!important;
 		}
 
-	    
-	      .t{
+	    .topheader{
+	    	display: none;
+	    }
+	    .t{
 			margin-top: 0px
 		}
+
+		.tt{
+			margin-top: 76px;
+		}
+
 		.carousel-caption{
 			position: absolute;
-			top: 32%;
+			top: 26%;
 		}
 
 		.carousel-caption h1{
@@ -247,46 +275,55 @@ footer a{
 		.welcome h1{
 			font-size: 200%;
 		}
-	
-	        .tt{
-		    position:relative !important;
-		    padding-top: 75px !important;
+		#vhome.topview{
+			padding-top: 0px !important;
 		}
-	
-	
-	
+		#vabout.topview,
+		#vblog.topview,
+		#vcontact.topview,
+		#vaddpost.topview,
+		{
+			padding-top: 76px !important;
+		}
+		.nav-item{
+	border-bottom: 1px solid #f8f9fa;
+}
+
 
 }
 
-@media(max-width: 575.9px){
+@media (min-width: 576px) and (max-width: 767.98px) {
 		.carousel-caption{
 			position: absolute;
-			top: 42%;
+			top: 38%;
 		}
-	
+
+}
+
+@media(max-width: 576px){
+		.carousel-caption{
+			position: absolute;
+			top: 34%;
+		}
 		.carousel-caption h1{
+			display: none;
 			font-size: 150%;
 			text-transform: uppercase;
 			text-shadow: 1px 1px 10px #000;
 		}
 
 		.carousel-caption h3{
-			font-size: 90%;
+			font-size: 120%;
 			font-weight: 500;
 			text-shadow: 1px 1px 10px #000;
 			padding-bottom: .2rem;
 		}
 
 		.carousel-caption h4{
-			display:none;
 			font-size: 70%;
 			font-weight: 500;
 			text-shadow: 1px 1px 10px #000;
 			padding-bottom: .2rem;
-		}
-	
-		.carousel-caption .pu{
-			display:none;
 		}
 
 		.carousel-caption .btn{
