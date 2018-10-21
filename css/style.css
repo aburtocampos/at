@@ -24,16 +24,7 @@ h1,h2,h3,h4{
 	font-family: 'Righteous', Poppins;
 }
 
-#vhome.topview{
-			padding-top: 0px !important;
-		}
-#vabout.topview,
-		#vblog.topview,
-		#vcontact.topview,
-		#vaddpost.topview
-		{
-			padding-top: 105px !important;
-		}
+
 .topview h1{
 	padding-top: 1rem;
 }
@@ -78,9 +69,6 @@ height: 30px;
 	background-color: var(--verde1)!important;
 }
 
-#footersocial a.nav-link i:hover{
-	color: var(--verde1)!important;
-}
 
 
 .linea{
@@ -227,12 +215,63 @@ footer a{
 .footer{
 	bottom: 0px;
 }
+#footersocial .nav-item{
+	padding-right: 6px;
+    margin-right: 10px;
+}
+
+#footersocial .nav-link{
+	 color: #fff !important;
+}
+
+#footersocial .nav-item a{
+	margin: 4px 1px;
+}
+
+#footersocial .nav-item.fb,
+#footersocial .nav-item.tw,
+#footersocial .nav-item.ins,
+#footersocial .nav-item.you,
+#footersocial .nav-item.li{
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border-radius: 50% !important;
+    color: #fff !important;
+	text-align: center;
+	border: 2px solid #fff !important;
+}
+
+#footersocial .nav-item.fb:hover{
+	
+    background: #3b5998 !important;
+}
+
+#footersocial .nav-item.tw:hover{
+	border: 2px solid #fff !important;
+    background: #1da1f2 !important;
+}
+
+#footersocial .nav-item.ins:hover{
+	border: 2px solid #fff !important;
+    background: #c32aa3 !important;
+}
+
+#footersocial .nav-item.you:hover{
+	border: 2px solid #fff !important;
+    background: #ff0000 !important;
+}
+
+#footersocial .nav-item.li:hover{
+	border: 2px solid #fff !important;
+    background: #007bb5 !important;
+}
 
 
 
 
 
-
+/***************************************************************************************************************************/
 
 
 
@@ -240,8 +279,17 @@ footer a{
 
 /*media queries*/
 
-@media(max-width: 992px){
-
+@media(min-width: 992px){
+   #vhome.topview{
+			padding-top: 105px !important;
+		}
+        #vabout.topview,
+		#vblog.topview,
+		#vcontact.topview,
+		#vaddpost.topview
+		{
+			padding-top: 105px !important;
+		}
 }
 
 @media(max-width: 768px){
