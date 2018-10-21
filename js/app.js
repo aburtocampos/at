@@ -46,12 +46,15 @@
 // Controladores
 
 
-app.controller('homeController',function($scope){
-  
-});
+app.controller('homeController',['$scope','$location',function($scope,$location){
+    $scope.isActive = function(destination){
+    return destination === $location.path();
+  }
+}]);
 
-app.controller('aboutController',function($scope){
-  
+app.controller('aboutController', function($scope){
+
+
 });
 
 app.controller('blogController',function($scope){

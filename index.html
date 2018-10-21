@@ -9,8 +9,9 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Aburto Technologies</title>
 </head>
-<body>
+<body ng-controller="homeController">
 	<header>
+		<!-- top -->
 		<div class="topheader fixed-top row">
 			<div class="col-6 pl-4">
 				<p>Agradecemos tu visita.</p>
@@ -29,7 +30,7 @@
 
 		</div>
 		<!-- navigation -->
-			<nav class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top t">
+			<nav id="mainMenu" class="navbar navbar-expand-md navbar-dark bg-transparent fixed-top t">
 				<div class="container-fluid">
 					<a href="#" class="navbar-brand">
 						<img src="images/logonuevo1.png" alt="" height="50px" class="">
@@ -39,17 +40,19 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarResponsive">
 						<ul class="navbar-nav ml-auto">
-							<li class="nav-item active">
-								<a href="#!/" class="nav-link">Inicio</a>
+							<li class="nav-item" ng-class="{active: isActive('/')}">
+								<a href="#!/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a>
 							</li>
-							<li class="nav-item">
-								<a href="#!/about" class="nav-link">Sobre Nosotros</a>
+							<li class="nav-item" ng-class="{active: isActive('/about')}">
+								<a href="#!/about" class="nav-link"><i class="fa fa-question" aria-hidden="true"></i> Sobre Nosotros</a>
 							</li>
-							<li class="nav-item">
-								<a href="#!/blog" class="nav-link">Blog</a>
+							<li class="nav-item" ng-class="{active: isActive('/blog')}">
+								<a href="#!/blog" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i> Blog</a>
 							</li>
-							<li class="nav-item">
-								<a href="#!/contact" class="nav-link">Contactanos</a>
+							<li class="nav-item" ng-class="{active: isActive('/contact')}">
+								<a href="#!/contact" class="nav-link"><i class="fa fa-search" aria-hidden="true">
+									Contactanos
+								</i> </a>
 							</li>
 						</ul>
 					</div>
@@ -66,7 +69,7 @@
 <!-- connect -->
 
 <!-- footer -->
-<footer class="footer">
+<footer class="footer ">
 	<div class="container-fluid padding">
 		<div class="row text-center">
 			<div class="col-md-4">
@@ -82,7 +85,11 @@
 						<i class="fa fa-envelope" aria-hidden="true"></i>  aburtotechnologies@gmail.com
 					</span>
 			   </p>
-				<p>Jinotepe, Carazo</p>
+			   <p class="lead">
+					<span class="badge badge-pill badge-light">
+						<i class="fa fa-map-marker" aria-hidden="true"></i>  Jinotepe, Carazo
+					</span>
+			   </p>
 			</div>
 
 			<div class="col-md-4">
@@ -127,6 +134,29 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/app.js"></script>
+
+
+	<script>
+		//para cargar push the page to botton aon mobile
+		(function($) {
+		    var $window = $(window),
+		        $html = $('#mainMenu');
+
+		    function resize() {
+		        if ($window.width() > 768) {
+		            return $html.addClass('fixed-top');
+		        }else{
+		        	$html.removeClass('fixed-top');
+		        }
+		    }
+
+		    $window
+		        .resize(resize)
+		        .trigger('resize');
+			})(jQuery);
+
+
+	</script>
 	
 </body>
 </html>

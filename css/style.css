@@ -34,7 +34,9 @@ h1,h2,h3,h4{
 		{
 			padding-top: 105px !important;
 		}
-
+.topview h1{
+	padding-top: 1rem;
+}
 
 p{
 	font-family: 'Poppins';
@@ -92,6 +94,16 @@ height: 30px;
 	padding:5px;
 }
 
+#mainMenu  .active a,
+#mainMenu  .active a:hover,
+#mainMenu  .active a:focus{
+	color:#fff;
+	border-bottom:1px solid #fff;
+}
+
+.nav-item{
+	text-align: center;
+}
 
 .navbar{
 	padding: .5rem;
@@ -246,7 +258,7 @@ footer a{
 		}
 
 		.tt{
-			margin-top: 76px;
+			/*margin-top: 76px;*/
 		}
 
 		.carousel-caption{
@@ -285,9 +297,9 @@ footer a{
 		{
 			padding-top: 76px !important;
 		}
-		.nav-item{
-	border-bottom: 1px solid #f8f9fa;
-}
+		.nav-item{	
+		border-bottom: 1px solid #f8f9fa;
+	}
 
 
 }
