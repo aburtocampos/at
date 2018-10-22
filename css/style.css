@@ -98,7 +98,7 @@ height: 30px;
 }
 
 .navbar-nav li{
-	padding-right: 20px;
+	margin-right: 20px;
 }
 
 .nav-link{
@@ -117,9 +117,9 @@ height: 30px;
 	bottom: 200px;
 }
 
-.carousel-control-next, .carousel-control-prev {
+/*.carousel-control-next, .carousel-control-prev {
 	top: -160px;
-}
+}*/
 
 .carousel-inner img{
 	width: 100%;
@@ -302,14 +302,18 @@ footer a{
 		}
 }
 
-@media (min-width: 767.99px) and (max-width: 991.99px) {
+@media (min-width: 768px) and (max-width: 992px) {
 	   .carousel-indicators{
 			bottom: 20px;
 		}
 
-		.carousel-control-next, .carousel-control-prev {
+		.nav-item{	
+		   border-bottom: 1px solid #f8f9fa;
+	    }
+
+		/*.carousel-control-next, .carousel-control-prev {
 			top: -60px;
-		}
+		}*/
 
 }
 
@@ -332,7 +336,7 @@ footer a{
 
 		.carousel-caption{
 			position: absolute;
-			top: 26%;
+			top: 40%;
 		}
 
 		.carousel-caption h1{
@@ -366,24 +370,24 @@ footer a{
 		{
 			padding-top: 76px !important;
 		}
+
 		.nav-item{	
 		   border-bottom: 1px solid #f8f9fa;
 	    }
-
 
          .carousel-indicators{
 			bottom: 20px;
 		}
 
-		.carousel-control-next, .carousel-control-prev {
+		/*.carousel-control-next, .carousel-control-prev {
 			top: -60px;
-		}
+		}*/
 
 
 
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (min-width: 576px) and (max-width: 768px) {
 		.carousel-caption{
 			position: absolute;
 			top: 38%;
@@ -393,9 +397,9 @@ footer a{
 			bottom: 20px;
 		}
 
-		.carousel-control-next, .carousel-control-prev {
+		/*.carousel-control-next, .carousel-control-prev {
 			top: -60px;
-		}
+		}*/
 
 }
 
@@ -412,14 +416,14 @@ footer a{
 		}
 
 		.carousel-caption h3{
-			font-size: 120%;
+			font-size: 130%;
 			font-weight: 500;
 			text-shadow: 1px 1px 10px #000;
 			padding-bottom: .2rem;
 		}
 
 		.carousel-caption h4{
-			font-size: 70%;
+			font-size: 90%;
 			font-weight: 500;
 			text-shadow: 1px 1px 10px #000;
 			padding-bottom: .2rem;
@@ -438,10 +442,10 @@ footer a{
 			bottom: 10px;
 		}
 
-		.carousel-control-next, .carousel-control-prev {
+		/*.carousel-control-next, .carousel-control-prev {
 			top: -28px;
 		}
-
+*/
 }
 
 
@@ -463,6 +467,8 @@ figure{
 	width: 100%;
 	height: 60%;
 	margin: 0!important;
+	background: rgb(4,99,89);
+    background: linear-gradient(90deg, rgba(4,99,89,0.1) 0%, rgba(2,129,115,0.1) 50%, rgba(4,99,89,0.1) 100%);
 }
 
 /*.fixed-wrap{
@@ -490,7 +496,7 @@ figure{
 	}*/
 .parallax { 
     /* The image used */
-    background-image: url("../images/backg5.jpg");
+    background-image: url("../images/backg5p.png");
 
     /* Set a specific height */
     height: 450px; 
