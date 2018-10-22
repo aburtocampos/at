@@ -112,6 +112,15 @@ height: 30px;
 
 
 
+
+.carousel-indicators{
+	bottom: 200px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+	top: -160px;
+}
+
 .carousel-inner img{
 	width: 100%;
 	height: 100%;
@@ -119,7 +128,7 @@ height: 30px;
 
 .carousel-caption{
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	transform: translateY(-50%);
 }
 
@@ -130,6 +139,13 @@ height: 30px;
 }
 
 .carousel-caption h3{
+	font-size: 150%;
+	font-weight: 500;
+	text-shadow: 1px 1px 10px #000;
+	padding-bottom: 2rem;
+}
+
+.carousel-caption h4{
 	font-size: 200%;
 	font-weight: 500;
 	text-shadow: 1px 1px 10px #000;
@@ -154,7 +170,7 @@ height: 30px;
 
 .btn-primary{
 	background-color: var(--verde);
-	border: 1px solid var(--verde);
+	border: 1px solid #fff;
 }
 
 .btn-primary:hover{
@@ -178,7 +194,7 @@ height: 30px;
 }
 
 .welcome hr{
-	border-top: 2px solid #b4b4b4;
+	border-top: 4px solid #028173;
 	width: 95%;
 	margin-top: .3rem;
 	margin-bottom: 1rem;
@@ -239,35 +255,29 @@ footer a{
 	border-radius: 50% !important;
     color: #fff !important;
 	text-align: center;
-	border: 2px solid #fff !important;
+
 }
 
-#footersocial .nav-item.fb:hover{
-	
-    background: #3b5998 !important;
-}
-
-#footersocial .nav-item.tw:hover{
-	border: 2px solid #fff !important;
-    background: #1da1f2 !important;
-}
-
-#footersocial .nav-item.ins:hover{
-	border: 2px solid #fff !important;
-    background: #c32aa3 !important;
-}
-
-#footersocial .nav-item.you:hover{
-	border: 2px solid #fff !important;
-    background: #ff0000 !important;
-}
-
+#footersocial .nav-item.fb:hover,
+#footersocial .nav-item.tw:hover,
+#footersocial .nav-item.ins:hover,
+#footersocial .nav-item.you:hover,
 #footersocial .nav-item.li:hover{
-	border: 2px solid #fff !important;
-    background: #007bb5 !important;
+		border: 2px solid #fff !important;
+    background: var(--verde) !important;
 }
 
 
+
+.rounded-circle.servicesimg{
+	height: 300px;
+	width: 300px;
+
+}
+
+.h3t{
+	padding-top: 2rem !important;
+}	
 
 
 
@@ -290,6 +300,17 @@ footer a{
 		{
 			padding-top: 105px !important;
 		}
+}
+
+@media (min-width: 767.99px) and (max-width: 991.99px) {
+	   .carousel-indicators{
+			bottom: 20px;
+		}
+
+		.carousel-control-next, .carousel-control-prev {
+			top: -60px;
+		}
+
 }
 
 @media(max-width: 768px){
@@ -333,7 +354,7 @@ footer a{
 		}
 
 		.welcome h1{
-			font-size: 200%;
+			font-size: 300%;
 		}
 		#vhome.topview{
 			padding-top: 0px !important;
@@ -346,8 +367,18 @@ footer a{
 			padding-top: 76px !important;
 		}
 		.nav-item{	
-		border-bottom: 1px solid #f8f9fa;
-	}
+		   border-bottom: 1px solid #f8f9fa;
+	    }
+
+
+         .carousel-indicators{
+			bottom: 20px;
+		}
+
+		.carousel-control-next, .carousel-control-prev {
+			top: -60px;
+		}
+
 
 
 }
@@ -356,6 +387,14 @@ footer a{
 		.carousel-caption{
 			position: absolute;
 			top: 38%;
+		}
+
+		.carousel-indicators{
+			bottom: 20px;
+		}
+
+		.carousel-control-next, .carousel-control-prev {
+			top: -60px;
 		}
 
 }
@@ -392,8 +431,17 @@ footer a{
 		}
 
 		.welcome h1{
-			font-size: 100%;
+			font-size: 300%;
 		}
+
+		.carousel-indicators{
+			bottom: 10px;
+		}
+
+		.carousel-control-next, .carousel-control-prev {
+			top: -28px;
+		}
+
 }
 
 
@@ -417,7 +465,7 @@ figure{
 	margin: 0!important;
 }
 
-.fixed-wrap{
+/*.fixed-wrap{
   clip: rect(0px, auto, auto, 0px);
   position: absolute;
   top: 0;
@@ -427,7 +475,7 @@ figure{
 }
 
 #fixed {
-	  background: url('../images/mac.png');
+	  background: url('../images/backg5.jpg');
 	  position: fixed;
 	  display: block;
 	  top: 0;
@@ -439,8 +487,20 @@ figure{
 	  -webkit-transform: translateZ(0);
 	          transform: translateZ(0);
 	  will-change: transform;
-	}
+	}*/
+.parallax { 
+    /* The image used */
+    background-image: url("../images/backg5.jpg");
 
+    /* Set a specific height */
+    height: 450px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /*[class*="col-"]{
 	padding: 1rem;
