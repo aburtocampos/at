@@ -29,8 +29,12 @@ urlsToCache = [
 './images/desk.jpg',
 './images/des.jpg',
 './images/de.jpg',
-'./images/ab.jpg'
-
+'./images/ab.jpg',
+'./views/home.html',
+'./views/about.html',
+'./views/blog.html',
+'./views/contact.html',
+'./views/addPost.html'
 ]
 
 
