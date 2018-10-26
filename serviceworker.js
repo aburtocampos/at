@@ -1,12 +1,15 @@
 //asignar un ombre y version al cache
 
-const CACHE_NAME = 'v1_cache_aburto_tech',
+const CACHE_NAME = 'v1_cache_aburto_tech', 
 urlsToCache = [
 './',
 'https://fonts.googleapis.com/css?family=Poppins',
 'https://fonts.googleapis.com/css?family=Righteous',
+'index.html',
 './css/bootstrap.min.css',
 './font-awesome-4.7.0/css/font-awesome.min.css',
+'./font-awesome-4.7.0/fonts/fontawesome-webfont.woff2',
+'./font-awesome-4.7.0/fonts/fontawesome-webfont.woff',
 './css/style.css',
 './js/jquery-3.3.1.min.js',
 './js/jquery.touchSwipe.js',
@@ -16,6 +19,7 @@ urlsToCache = [
 './js/bootstrap.min.js',
 './js/bootstrap-swipe-carousel.js',
 './js/app.js',
+'./js/script.js',
 './images/logo3.png',
 './images/backg8.png',
 './images/backg7.png',
@@ -34,8 +38,10 @@ urlsToCache = [
 './views/about.html',
 './views/blog.html',
 './views/contact.html',
-'./views/addPost.html'
+'./views/addPost.html',
+'./manifest.json'
 ]
+
 
 
 //durante la instalacion , se almacenan en cache los activos estaticos
@@ -63,7 +69,7 @@ self.addEventListener("activate", e => {
 		caches.keys()
 		.then(cacheNames => {
 			return Promise.all(
-			cacheNames.map(cacheName=>{
+			cacheNames.filter(cacheName=>{
 				//eliminamos lo que ya no se necesita en cache
 				if (cacheWhitelist.indexOf(cacheName) === -1){
        
@@ -97,9 +103,45 @@ self.addEventListener('fetch', e => {
   	 		return res
   	 	}
   	 	//recupera de url
+      console.log('Recuperando de internet')
         return fetch(e.request)
 
   	 })
 
   	)
 })
+
+
+
+
+
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.match(event.request)
+//     .then(function(response) {
+//       return response || fetchAndCache(event.request);
+//     })
+//   );
+// });
+
+// function fetchAndCache(url) {
+//   return fetch(url)
+//   .then(function(response) {
+//     // Check if we received a valid response
+//     if (!response.ok) {
+//       throw Error(response.statusText);
+//     }
+//     return caches.open(CACHE_NAME)
+//     .then(function(cache) {
+//       cache.put(url, response.clone());
+//       return response;
+//     });
+//   })
+//   .catch(function(error) {
+//     console.log('Request failed:', error);
+//     // You could return a custom offline 404 page here
+//   });
+// }
+
+
+
