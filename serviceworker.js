@@ -25,11 +25,11 @@ urlsToCache = [
 './images/team1.png',
 './images/backg5p.png',
 './images/logonuevo1.png',
-'./images/social.png',
-'./images/desk.png',
-'./images/des.png',
-'./images/de.png',
-'./images/ab.png'
+'./images/social.jpg',
+'./images/desk.jpg',
+'./images/des.jpg',
+'./images/de.jpg',
+'./images/ab.jpg'
 
 ]
 
@@ -41,6 +41,7 @@ self.addEventListener('install', e => {
    		.then(cache =>{
    			return cache.addAll(urlsToCache)
    			.then(()=> self.skipWaiting())
+     
    		})
    		.catch(err => console.log('Fallo registro de cache',err))
    	)
@@ -58,12 +59,15 @@ self.addEventListener("activate", e => {
 			cacheNames.map(cacheName=>{
 				//eliminamos lo que ya no se necesita en cache
 				if (cacheWhitelist.indexOf(cacheName) === -1){
+       
 					return caches.delete(cacheName)
+
 				}
 			})
 		)
 	  })
 	//le indica al sw activar el cache actual
+
 	.then(()=>self.clients.claim())
 	)
 	
