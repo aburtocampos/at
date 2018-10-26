@@ -40,11 +40,13 @@ urlsToCache = [
 
 //durante la instalacion , se almacenan en cache los activos estaticos
 self.addEventListener('install', e => {
+  console.log('Evento: SW Instalado')
    e.waitUntil(
    		caches.open(CACHE_NAME)
    		.then(cache =>{
+        console.log('Archivos en cache')
    			return cache.addAll(urlsToCache)
-   			.then(()=> self.skipWaiting())
+   			.then( ()=> self.skipWaiting())
      
    		})
    		.catch(err => console.log('Fallo registro de cache',err))
@@ -55,6 +57,7 @@ self.addEventListener('install', e => {
 
 //una vez instalado el SW se activa y busca los recursos offline
 self.addEventListener("activate", e => {
+  console.log('Evento: SW Activado')
 	const cacheWhitelist = [CACHE_NAME]
 	e.waitUntil(
 		caches.keys()
@@ -72,19 +75,23 @@ self.addEventListener("activate", e => {
 	  })
 	//le indica al sw activar el cache actual
 
-	.then(()=>self.clients.claim())
+	.then(()=>{
+     console.log('Cache actualizado')
+     return self.clients.claim()
+  })
 	)
-	
 })
 
 
 
 //recupera los recursos de internet cuando esta en linea y actualiza los datos locales en cache con los de internet
 self.addEventListener('fetch', e => {
+   console.log('Evento: SW Recuperando')
   //responder con el objeto en cache o buscar la url real
     e.respondWith(
   	 caches.match(e.request)
   	 .then(res => {
+       console.log('Recuperando cache')
   	 	if (res){
   	 		//recuperando del cache
   	 		return res
