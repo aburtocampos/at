@@ -16,7 +16,20 @@ urlsToCache = [
 './js/bootstrap.min.js',
 './js/bootstrap-swipe-carousel.js',
 './js/app.js',
-'./images/logo3.png'
+'./images/logo3.png',
+'./images/backg8.png',
+'./images/backg7.png',
+'./images/backg6.png',
+'./images/team3.png',
+'./images/team2.png',
+'./images/team1.png',
+'./images/backg5p.png',
+'./images/logonuevo1.png',
+'./images/social.png',
+'./images/desk.png',
+'./images/des.png',
+'./images/de.png',
+'./images/ab.png'
 
 ]
 
