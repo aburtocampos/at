@@ -5,7 +5,7 @@ urlsToCache = [
 './',
 'https://fonts.googleapis.com/css?family=Poppins',
 'https://fonts.googleapis.com/css?family=Righteous',
-'index.html',
+'/index.html',
 './css/bootstrap.min.css',
 './font-awesome-4.7.0/css/font-awesome.min.css',
 './font-awesome-4.7.0/fonts/fontawesome-webfont.woff2',
@@ -90,58 +90,85 @@ self.addEventListener("activate", e => {
 
 
 
-//recupera los recursos de internet cuando esta en linea y actualiza los datos locales en cache con los de internet
-self.addEventListener('fetch', e => {
-   console.log('Evento: SW Recuperando')
-  //responder con el objeto en cache o buscar la url real
-    e.respondWith(
-  	 caches.match(e.request)
-  	 .then(res => {
-       console.log('Recuperando cache')
-  	 	if (res){
-  	 		//recuperando del cache
-  	 		return res
-  	 	}
-  	 	//recupera de url
-      console.log('Recuperando de internet')
-        return fetch(e.request)
-
-  	 })
-
-  	)
-})
-
-
-
-
-
-// self.addEventListener('fetch', function(event) {
-//   event.respondWith(
-//     caches.match(event.request)
-//     .then(function(response) {
-//       return response || fetchAndCache(event.request);
-//     })
+// self.addEventListener('activate', function(event) {
+//   var version = 'v1';
+//   event.waitUntil(
+//     caches.keys()
+//       .then(cacheNames =>
+//         Promise.all(
+//           cacheNames
+//             .map(c => c.split('-'))
+//             .filter(c => c[0] === 'cachestore')
+//             .filter(c => c[1] !== version)
+//             .map(c => caches.delete(c.join('-')))
+//         )
+//       )
 //   );
 // });
 
-// function fetchAndCache(url) {
-//   return fetch(url)
-//   .then(function(response) {
-//     // Check if we received a valid response
-//     if (!response.ok) {
-//       throw Error(response.statusText);
-//     }
-//     return caches.open(CACHE_NAME)
-//     .then(function(cache) {
-//       cache.put(url, response.clone());
-//       return response;
-//     });
-//   })
-//   .catch(function(error) {
-//     console.log('Request failed:', error);
-//     // You could return a custom offline 404 page here
-//   });
-// }
+
+
+//recupera los recursos de internet cuando esta en linea y actualiza los datos locales en cache con los de internet
+// self.addEventListener('fetch', e => {
+//    console.log('Evento: SW Recuperando')
+//   //responder con el objeto en cache o buscar la url real
+//     e.respondWith(
+//   	 caches.match(e.request)
+//   	 .then(res => {
+//        console.log('Recuperando cache')
+//   	 	if (res){
+//   	 		//recuperando del cache
+//   	 		return res
+//   	 	}
+//   	 	//recupera de url
+//       console.log('Recuperando de internet')
+//         return fetch(e.request)
+
+//   	 })
+
+//   	)
+// })
 
 
 
+
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+    .then(function(response) {
+      return response || fetchAndCache(event.request);
+    })
+  );
+});
+
+function fetchAndCache(url) {
+  return fetch(url)
+  .then(function(response) {
+    // Check if we received a valid response
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return caches.open(CACHE_NAME)
+    .then(function(cache) {
+      cache.put(url, response.clone());
+      return response;
+    });
+  })
+  .catch(function(error) {
+    console.log('Request failed:', error);
+    // You could return a custom offline 404 page here
+  });
+}
+
+
+
+// self.addEventListener("fetch", function(event) {
+//   event.respondWith(
+//     fetch(event.request).catch(function() {
+//       return caches.match(event.request).then(function(response) {
+//         return response || caches.match("/404.html");
+//       });
+//     })
+//   );
+// });
