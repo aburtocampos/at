@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "./",
-  "start_url": "./?utm_source=wep_app_manifest",
+  "start_url": "/?utm_source=homescreen",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
