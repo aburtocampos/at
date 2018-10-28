@@ -85,7 +85,7 @@
 						<!-- two columns section -->
 
 						<!-- connect -->
-
+				
 						<!-- footer -->
 						<footer class="footer ">
 							<div class="container-fluid padding">
@@ -179,9 +179,27 @@
 		        .trigger('resize');
 			})(jQuery);
 
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 40) {
+			$('#topBtn').fadeIn();
+		}else{
+			$('#topBtn').fadeOut();
+		}
+	});
 
+	$('#topBtn').click(function(){
+		$('html, body').animate({
+			scrollTop:0
+		},800);
+	});
+
+
+});
 	   
 	</script>
-	
+		<button id="topBtn">
+						<i class="fa fa-arrow-up" aria-hidden="true"></i>
+					</button>
 </body>
 </html>
