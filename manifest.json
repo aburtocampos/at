@@ -6,8 +6,8 @@
   "background_color": "#028173",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "./",
-  "start_url": "./?utm_source=homescreen",
+  "Scope": "/",
+  "start_url": "/?utm_source=homescreen",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
