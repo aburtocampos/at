@@ -62,22 +62,31 @@ app.controller('aboutController', function($scope){
 // });
 
 
-app.controller("blogController",['$scope','$log','$http',function($scope,$log,$http) {
- 
+app.controller('blogController', ['$scope', '$http', function($scope, $http) {
+
+  //Buttons Settings
+  // $scope.submit = true;
+  // $scope.update = false;
+  // $scope.cancel = false;
+  // $scope.userid = true;
+
+  //Getting Users List
+  //$http GET function
   $http({
-    method: 'GET', 
+    method: 'GET',
     url: 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'
-  }).success(function(data, status, headers, config) {
-     // $scope.seguro=data;
-      console.log(data);
-  }).error(function(data, status, headers, config) {
-      console.log("Ha fallado la petición. Estado HTTP:"+status);
+
+  }).then(function successCallback(response) {
+      console.log(response.data);
+   // $scope.users = response.data;
+
+  }, function errorCallback(response) {
+
+    alert("malo");
+
   });
-     
-    
+
 }]);
-
-
 
 app.controller('contactController',function($scope){
   
