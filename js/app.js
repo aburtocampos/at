@@ -78,11 +78,8 @@ app.controller('blogController', ['$scope', '$http', function($scope, $http) {
 
   }).then(function successCallback(response) {
       console.log(response.data);
-    $scope.myData.ID = response.data.ID;
-    $scope.myData.content = response.data.content;
-    $scope.myData.title = response.data.title;
-    $scope.myData.categories = response.data.categories;
-    $scope.myData.date = response.data.date;
+      $scope.misDatos = response.data;
+   
 
   }, function errorCallback(response) {
 
