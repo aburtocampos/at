@@ -89,18 +89,18 @@ app.controller('aboutController', function($scope){
 
 // }]);
 
-app.controller('blogController', function($scope, $http) {
+app.controller('blogController',['$scope', '$http', function($scope, $http) {
  $scope.posts = [];
  $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/')
- .success(function(data){
-    console.log(data);
-     $scope.posts = data;
- })
- .error(function(err){
-    console.log(err);
- });
+   .success(function(data){
+      console.log(data);
+       $scope.posts = data;
+   })
+   .error(function(err){
+      console.log(err);
+   });
 
-});
+}]);
 
 
 app.controller('contactController',function($scope){
