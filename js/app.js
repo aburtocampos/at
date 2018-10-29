@@ -114,9 +114,9 @@ app.controller('aboutController', function($scope){
 app.controller('blogController', function($scope, $http) {
 // $scope.posts = [];
    $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
-      function (data){
-        $scope.arrayOfPosts = data.data;
-        console.log(data.data);
+      function (response){
+        $scope.arrayOfPosts = response.data.posts;
+        console.log(response.data.posts);
 
       })
 
