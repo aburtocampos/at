@@ -15,7 +15,7 @@
           <!-- Blog Post -->
           <div class="card mb-4" ng-repeat="post in posts">
             <p class="d-none">{{post.ID}}</p>
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <img class="card-img-top" ng-src="{{post.featured_image}}" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title">{{post.title}}</h2>
               <p class="card-text">{{post.content}}</p>
