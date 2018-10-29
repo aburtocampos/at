@@ -14,15 +14,15 @@
 
           <!-- Blog Post -->
           <div class="card mb-4" ng-repeat="post in arrayOfPosts">
-            <p class="">{{post.title}}</p>
+            <p class="">{{post.ID}}</p>
             <img class="card-img-top" ng-src="{{post.featured_image}}" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title">{{post.login}}</h2>
-              <p class="card-text">{{post.email}}</p>
+              <h2 class="card-title">{{post.title}}</h2>
+              <p class="card-text">{{post.content}}</p>
               <a href="#" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              Posted on by
+              Posted on {{post.date}} by Aburto Technologies.
               <a href="#"></a>
             </div>
           </div>
