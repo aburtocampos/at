@@ -98,8 +98,8 @@ app.controller('blogController',['$scope', '$http','$log', function($scope, $htt
 
    .then(function(data){
        $scope.posts = data;
-       $log.info(response);
-   }, function(reason){
+       $log.info(data);
+   }, function(data){
      $scope.error = data;
    });
 
