@@ -77,7 +77,7 @@ app.controller('blogController', ['$scope', '$http', function($scope, $http) {
     url: 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'
 
   }).then(function successCallback(response) {
-      console.log(response.data);
+      console.log('Bien Hecho: '+response.data);
    // $scope.users = response.data;
 
   }, function errorCallback(response) {
