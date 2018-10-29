@@ -96,11 +96,11 @@ app.controller('blogController',['$scope', '$http','$log', function($scope, $htt
     method: 'GET',
      url: 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'})
 
-   .then(function(response){
-       $scope.posts = response.data;
+   .then(function(data){
+       $scope.posts = data;
        $log.info(response);
    }, function(reason){
-     $scope.error = reason.data;
+     $scope.error = data;
    });
 
    // .error(function(err){
