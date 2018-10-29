@@ -93,8 +93,8 @@ app.controller('aboutController', function($scope){
 app.controller('blogController',['$scope', '$http', function($scope, $http) {
 // $scope.posts = [];
  $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/')
-   .success(function(data){
-      console.log(response);
+   .success(function(response){
+      console.log(response.posts);
        $scope.posts = response.posts;
    })
    .error(function(err){
