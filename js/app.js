@@ -90,24 +90,43 @@ app.controller('aboutController', function($scope){
 
 // }]);
 
-app.controller('blogController',['$scope', '$http','$log', function($scope, $http, $log) {
+// app.controller('blogController',['$scope', '$http','$log', function($scope, $http, $log) {
+// // $scope.posts = [];
+//    $http({
+//     method: 'GET',
+//      url: 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'})
+
+//    .then(function(data){
+//        $scope.posts = data;
+//        $log.info(data);
+//    }, function(data){
+//      $scope.error = data;
+//    });
+
+//    // .error(function(err){
+//    //    console.log(err);
+//    // });
+
+// }]);
+
+
+
+app.controller('blogController', function($scope, $http) {
 // $scope.posts = [];
-   $http({
-    method: 'GET',
-     url: 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'})
+   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(\
+      function (data){
+        $scope.arrayOfPosts = data.data;
+        console.log(data.data);
 
-   .then(function(data){
-       $scope.posts = data;
-       $log.info(data);
-   }, function(data){
-     $scope.error = data;
-   });
+      }
 
-   // .error(function(err){
-   //    console.log(err);
-   // });
 
-}]);
+    )
+
+})
+
+
+
 
 
 app.controller('contactController',function($scope){
