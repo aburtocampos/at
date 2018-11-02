@@ -48,8 +48,26 @@
 
 app.controller('homeController',['$scope','$location',function($scope,$location){
     $scope.isActive = function(destination){
-    return destination === $location.path();
-  }
+        return destination === $location.path();
+     }
+
+    $scope.leyendas = 
+      {
+        titulo1:'Aburto Technologies',
+        subtitulo1:'Calidad y pasión, por nuestro trabajo.',
+        contenido1:'Agencia de Publicidad Digital',
+     
+        titulo2:'Diseño Web',
+        subtitulo2:'Calidad y pasión, por nuestro trabajo.',
+        contenido2:'Agencia de Publicidad Digital',
+
+        titulo3:'Manejo de Redes Sociales',
+        subtitulo3:'Calidad y pasión, por nuestro trabajo.',
+        contenido3:'Agencia de Publicidad Digital'
+      }
+
+
+
 }]);
 
 app.controller('aboutController', function($scope){
@@ -57,7 +75,11 @@ app.controller('aboutController', function($scope){
 
 });
 
-
+app.run(function($rootScope, $templateCache) {
+   $rootScope.$on('$viewContentLoaded', function() {
+      $templateCache.removeAll();
+   });
+});
 
 
 
@@ -120,7 +142,7 @@ app.controller('blogController', function($scope, $http) {
 
       })
 
-
+//TODO: hacer que el blog tambien se guarde en la cache
 
 
 })
