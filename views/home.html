@@ -2,7 +2,7 @@
 <div id="vhome" class="topview" ng-controller="homeController">
 
 <!-- slider -->
-<div id="slides" class="carousel slide tt my-carousel" data-ride="carousel">
+<div id="slides" class="carousel slide tt" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#slides" data-slide-to="0" class="active"></li>
     <li data-target="#slides" data-slide-to="1"></li>
@@ -12,9 +12,9 @@
     <div class="carousel-item active">
       <img class="d-block w-100" src="images/backg6.png" alt="First slide">
       <div class="carousel-caption">
-	    <h1 class="display-2">Aburto Technologies</h1>
-	    <h3>Calidad y pasión, por nuestro trabajo.</h3>
-	    <h4>Agencia de Publicidad Digital</h4>
+	    <h1 class="display-2">{{leyendas.titulo1}}</h1>
+	    <h3>{{leyendas.subtitulo1}}</h3>
+	    <h4>{{leyendas.contenido1}}</h4>
 	    <a href="#!/contact" class="btn btn-primary btn-lg">Más Información</a>
 
 	  </div>
@@ -22,9 +22,9 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="images/backg7.png" alt="Second slide">
       <div class="carousel-caption">
-	    <h1 class="display-2">Aburto Technologies</h1>
-	    <h3>Calidad y pasión, por nuestro trabajo.</h3>
-	    <h4>Publicidad Digital</h4>
+	   	 <h1 class="display-2">{{leyendas.titulo2}}</h1>
+	    <h3>{{leyendas.subtitulo2}}</h3>
+	    <h4>{{leyendas.contenido2}}</h4>
 	    <button type="button" class="btn btn-outline-light btn-lg">VIEW DEMO</button>
 	    <button type="button" class="btn btn-primary btn-lg">Get Started</button>
 	  </div>
@@ -32,9 +32,9 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="images/backg8.png" alt="Third slide">
       <div class="carousel-caption">
-	    <h1 class="display-2">Aburto Technologies</h1>
-	    <h3>Calidad y pasión, por nuestro trabajo.</h3>
-	    <h4>Publicidad Digital</h4>
+	  	 <h1 class="display-2">{{leyendas.titulo3}}</h1>
+	    <h3>{{leyendas.subtitulo3}}</h3>
+	    <h4>{{leyendas.contenido3}}</h4>
 	    <button type="button" class="btn btn-primary btn-lg">Mas Informacion</button>
 	  </div>
     </div>
@@ -47,7 +47,43 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div> 
+
+
+
+<!-- <section class="intro carousel slide bg-overlay-light h-auto" id="carouselExampleCaptions">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img class="d-block img-fluid" alt="First slide" src="images/backg6.png">
+        <div class="carousel-caption ">
+          	<h2 class="display-4 text-white mb-2 mt-4">{{leyendas.titulo1}}</h2>
+			<p class="text-white mb-3 px-5 lead">{{leyendas.subtitulo1}}</p>
+			<a href="#" class="btn btn-primary btn-capsul px-4 py-2">Explore More</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block img-fluid" alt="First slide" src="images/backg7.png">
+        <div class="carousel-caption ">
+          	<h2 class="display-4 text-white mb-2 mt-4">Accept the challenges so that you can feel the exhilaration of victory.</h2>
+			<p class="text-white mb-3 px-5 lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do enim ad minim veniam, </p>
+			<a href="#" class="btn btn-primary btn-capsul px-4 py-2">Explore More</a>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</section> -->
+
 
 <!-- jumbotron -->
 <div class="container-fluid">
@@ -183,30 +219,34 @@
 <script>
 
 	//to make the carousel touch
-  //   $(document).ready(function() {
+    $(document).ready(function() {
 
-  //     $(".carousel").swipe({
+      $(".carousel").swipe({
 
-		//   swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+		  swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
 
-		//     if (direction == 'left') $(this).carousel('next');
-		//     if (direction == 'right') $(this).carousel('prev');
+		    if (direction == 'left') $(this).carousel('next');
+		    if (direction == 'right') $(this).carousel('prev');
 
-		//   },
-		//   allowPageScroll:"vertical"
+		  },
+		  allowPageScroll:"vertical"
 
-		// });
+		});
 
-  //   });	
+    });	
 
 
  // const carouselEl =;
 
 // Bootstrap carousel needs to be loaded first
- $('.my-carousel').carousel().swipeCarousel({
-  sensitivity: 'high' // low, medium or high
-});
-
+//  $('.my-carousel').carousel().swipeCarousel({
+//   sensitivity: 'high',
+//    keyboard:true// low, medium or high
+// });
+$('.carousel').carousel({
+  sensitivity: 'high',
+   keyboard:true// low, medium or high
+ });
 
 
 
