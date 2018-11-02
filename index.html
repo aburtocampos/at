@@ -85,7 +85,7 @@
 						<!-- two columns section -->
 
 						<!-- connect -->
-				
+
 						<!-- footer -->
 						<footer class="footer ">
 							<div class="container-fluid padding">
@@ -155,7 +155,8 @@
 	<script src="js/angular-route.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-swipe-carousel.js"></script>
+
+<!-- 	<script src="js/bootstrap-swipe-carousel.js"></script> -->
 	<script src="js/app.js"></script>
 	<script src="js/script.js"></script>
 
@@ -179,27 +180,17 @@
 		        .trigger('resize');
 			})(jQuery);
 
-$(document).ready(function(){
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 40) {
-			$('#topBtn').fadeIn();
-		}else{
-			$('#topBtn').fadeOut();
-		}
-	});
+			// $(window).scroll(function() {    
+			//     var scroll = $(window).scrollTop();
 
-	$('#topBtn').click(function(){
-		$('html, body').animate({
-			scrollTop:0
-		},800);
-	});
-
-
-});
+			//     if (scroll >= 100) {
+			//         $(".top-nav").addClass("light-header");
+			//     } else {
+			//         $(".top-nav").removeClass("light-header");
+			//     }
+			// });
 	   
 	</script>
-		<button id="topBtn">
-						<i class="fa fa-arrow-up" aria-hidden="true"></i>
-					</button>
+	
 </body>
 </html>

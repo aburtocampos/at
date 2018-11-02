@@ -48,15 +48,15 @@ urlsToCache = [
 self.addEventListener('install', e => {
   console.log('Evento: SW Instalado')
    e.waitUntil(
-   		caches.open(CACHE_NAME)
-   		.then(cache =>{
+      caches.open(CACHE_NAME)
+      .then(cache =>{
         console.log('Archivos en cache')
-   			return cache.addAll(urlsToCache)
-   			.then( ()=> self.skipWaiting())
+        return cache.addAll(urlsToCache)
+        .then( ()=> self.skipWaiting())
      
-   		})
-   		.catch(err => console.log('Fallo registro de cache',err))
-   	)
+      })
+      .catch(err => console.log('Fallo registro de cache',err))
+    )
 })
 
 
@@ -64,28 +64,28 @@ self.addEventListener('install', e => {
 //una vez instalado el SW se activa y busca los recursos offline
 self.addEventListener("activate", e => {
   console.log('Evento: SW Activado')
-	const cacheWhitelist = [CACHE_NAME]
-	e.waitUntil(
-		caches.keys()
-		.then(cacheNames => {
-			return Promise.all(
-			cacheNames.filter(cacheName=>{
-				//eliminamos lo que ya no se necesita en cache
-				if (cacheWhitelist.indexOf(cacheName) === -1){
+  const cacheWhitelist = [CACHE_NAME]
+  e.waitUntil(
+    caches.keys()
+    .then(cacheNames => {
+      return Promise.all(
+      cacheNames.filter(cacheName=>{
+        //eliminamos lo que ya no se necesita en cache
+        if (cacheWhitelist.indexOf(cacheName) === -1){
        
-					return caches.delete(cacheName)
+          return caches.delete(cacheName)
 
-				}
-			})
-		)
-	  })
-	//le indica al sw activar el cache actual
+        }
+      })
+    )
+    })
+  //le indica al sw activar el cache actual
 
-	.then(()=>{
+  .then(()=>{
      console.log('Cache actualizado')
      return self.clients.claim()
   })
-	)
+  )
 })
 
 
@@ -113,62 +113,60 @@ self.addEventListener("activate", e => {
 //    console.log('Evento: SW Recuperando')
 //   //responder con el objeto en cache o buscar la url real
 //     e.respondWith(
-//   	 caches.match(e.request)
-//   	 .then(res => {
+//     caches.match(e.request)
+//     .then(res => {
 //        console.log('Recuperando cache')
-//   	 	if (res){
-//   	 		//recuperando del cache
-//   	 		return res
-//   	 	}
-//   	 	//recupera de url
+//      if (res){
+//        //recuperando del cache
+//        return res
+//      }
+//      //recupera de url
 //       console.log('Recuperando de internet')
 //         return fetch(e.request)
 
-//   	 })
+//     })
 
-//   	)
+//    )
 // })
 
 
 
 
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-    .then(function(response) {
-      return response || fetchAndCache(event.request);
-    })
-  );
-});
-
-function fetchAndCache(url) {
-  return fetch(url)
-  .then(function(response) {
-    // Check if we received a valid response
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-    return caches.open(CACHE_NAME)
-    .then(function(cache) {
-      cache.put(url, response.clone());
-      return response;
-    });
-  })
-  .catch(function(error) {
-    console.log('Request fallo:', error);
-    // You could return a custom offline 404 page here
-  });
-}
-
-
-
-// self.addEventListener("fetch", function(event) {
+// self.addEventListener('fetch', function(event) {
 //   event.respondWith(
-//     fetch(event.request).catch(function() {
-//       return caches.match(event.request).then(function(response) {
-//         return response || caches.match("/404.html");
-//       });
+//     caches.match(event.request)
+//     .then(function(response) {
+//       return response || fetchAndCache(event.request);
 //     })
 //   );
 // });
+
+// function fetchAndCache(url) {
+//   return fetch(url)
+//   .then(function(response) {
+//     // Check if we received a valid response
+//     if (!response.ok) {
+//       throw Error(response.statusText);
+//     }
+//     return caches.open(CACHE_NAME)
+//     .then(function(cache) {
+//       cache.put(url, response.clone());
+//       return response;
+//     });
+//   })
+//   .catch(function(error) {
+//     console.log('Request fallo:', error);
+//     // You could return a custom offline 404 page here
+//   });
+// }
+
+
+//guarda en cache pero actualiza datos mas seguido de la cache
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+     fetch(event.request).catch(function(){
+      return caches.match(event.request);
+     })
+   );
+});
