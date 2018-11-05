@@ -208,9 +208,39 @@ height: 30px;
 	margin-bottom: 1rem;
 }
 
+.modal-body{
+ padding: 0px;
+}
 
+/*******************************footer**********************************************/
 
+/***social icon***/
+a.icon {
+width: 40px;
+height:40px;
+text-align: center;
+background-color: #ffffff;
+border: 3px solid #028173;
+border-radius: 50%;
+margin-right: 20px;
+}
+a.icon i {
+margin-top: 10px;
+color: #028173;
+}
+a.icon:hover {
+background-color: #028173;
+border: 3px solid #028173
+}
+a.icon:hover i {
+color: #ffffff;
+}
 
+a.nav-link{
+	padding: 0px;
+}
+
+/**/
 
 footer{
 	background-color: #3f3f3f;
@@ -237,44 +267,8 @@ footer a{
 }
 
 .footer{
-	bottom: 0px;
+	bottom: 0px !important;
 }
-#footersocial .nav-item{
-	padding-right: 6px;
-    margin-right: 10px;
-}
-
-#footersocial .nav-link{
-	 color: #fff !important;
-}
-
-#footersocial .nav-item a{
-	margin: 4px 1px;
-}
-
-#footersocial .nav-item.fb,
-#footersocial .nav-item.tw,
-#footersocial .nav-item.ins,
-#footersocial .nav-item.you,
-#footersocial .nav-item.li{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	border-radius: 50% !important;
-    color: #fff !important;
-	text-align: center;
-
-}
-
-#footersocial .nav-item.fb:hover,
-#footersocial .nav-item.tw:hover,
-#footersocial .nav-item.ins:hover,
-#footersocial .nav-item.you:hover,
-#footersocial .nav-item.li:hover{
-		border: 2px solid #fff !important;
-    background: var(--verde) !important;
-}
-
 
 
 .rounded-circle.servicesimg{
@@ -286,30 +280,64 @@ footer a{
 	padding-top: 2rem !important;
 }	
 
-#topBtn{
-	position: fixed;
-	bottom: 40px;
-	right: 40px;
-	font-size: 22px;
-	width: 50px;
-	height: 50px;
-	background: #e74c3c;
-	color: white;
-	border:none;
-    cursor: pointer;
+
+
+/*********************************************************footer ends******************************************************************/
+
+/****************************************************************contact***********************************************************/
+
+/*Contact sectiom*/
+
+
+
+form{
+  width: 100%;
+  height: auto;
+  background: rgb(2,129,115);
+  background: linear-gradient(360deg, rgba(2,129,115,1) 0%, rgba(18,170,153,1) 35%, rgba(6,187,167,1) 100%);
+    color : #fff;    
+    margin-bottom: 5rem;
+    border-radius: 10px;
+    padding: 12px;
+}
+.contact-section{
+  padding-top: 40px;
+}
+.contact-section .col-md-6{
+  width: 50%;
+}
+
+.form-line{
+  border-right: 1px solid #B29999;
+}
+
+.form-group{
+  margin-top: 10px;
+}
+label{
+  font-size: 1.3em;
+  line-height: 1em;
+  font-weight: normal;
+}
+.form-control{
+  font-size: 1.3em;
+  color: #080808;
+}
+textarea.form-control {
+    height: 135px;
+   /* margin-top: px;*/
+}
+
+.submit{
+  font-size: 1.1em;
+  float: right;
+  width: 150px;
+  background-color: transparent;
+  color: #fff;
 
 }
 
-
-
-
-
-
-/***************************************************************************************************************************/
-
-
-
-
+/********************************************************************contact ends***************************************************************/
 
 /*media queries*/
 
@@ -331,7 +359,7 @@ footer a{
 			bottom: 20px;
 		}
 
-		.nav-item{	
+		#mainMenu .nav-item{	
 		   border-bottom: 1px solid #f8f9fa;
 	    }
 
@@ -400,7 +428,7 @@ footer a{
 			padding-top: 76px !important;
 		}
 
-		.nav-item{	
+		#mainMenu .nav-item{	
 		   border-bottom: 1px solid #f8f9fa;
 	    }
 
