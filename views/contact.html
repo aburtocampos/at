@@ -1,4 +1,34 @@
 <div class="topview" id="vcontact">
-<h1 class="text-center">Contactanos</h1>
-	<hr class="my-4 linea">
+      <h1 class="text-center">Contactanos<h3 class="text-center">Ponte en contacto con nosotros</h3></h1>
+
+			<div class="container">
+				<form class="row" id="myform" onsubmit="emailjs.sendForm('default_service', 'template_w9b3BP1c', this); return false;" method="post">
+					<div class="col-sm-6 col col-12">
+			  			<div class="form-group">
+			  				<label for="exampleInputUsername">Nombre</label>
+					    	<input type="text" class="form-control" id="" placeholder="Nombre y Apellidos" name="reply_to">
+				  		</div>
+				  		<div class="form-group">
+					    	<label for="exampleInputEmail">Correo Electrónico</label>
+					    	<input type="email" class="form-control" id="exampleInputEmail" placeholder="E-mail" name="from_name" >
+					  	</div>	
+					  	<div class="form-group">
+					    	<label for="telephone">Número de Teléfono</label>
+					    	<input type="tel" class="form-control" id="telephone" placeholder="Teléfono o celular">
+			  			</div>
+			  		</div>
+			  		<div class="col-sm-6 col col-12">
+			  			<div class="form-group">
+			  				<label for ="description"> Mensaje</label>
+			  			 	<textarea  class="form-control" id="description" placeholder="Deja tu mensaje" name="message_html"></textarea>
+			  			</div>
+			  			<div>
+			  				<button type="button" class="btn btn-outline-light btn-lg btn-block"> Enviar <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			  			</div>
+			  			
+					</div>
+				</form>
+			</div>
+	
+
 </div>
