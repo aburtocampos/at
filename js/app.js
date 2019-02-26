@@ -15,7 +15,7 @@
       templateUrl : 'views/blog.html',
       controller  : 'blogController'
     })
-     .when('/blog', {
+     .when('/detailPost', {
       templateUrl : 'views/detailPost.html',
       controller  : 'detblogController'
     })
@@ -136,34 +136,69 @@ app.run(function($rootScope, $templateCache) {
 
 
 
-app.controller('blogController', function($scope, $http) {
+app.controller('blogController','postService', function($scope, $http,postService) {
 // $scope.posts = [];
-   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
-      function (response){
-        $scope.arrayOfPosts = response.data.posts;
-        console.log(response.data.posts);
+   // $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+   //    function (response){
+   //      $scope.arrayOfPosts = response.data.posts;
+   //      console.log(response.data.posts);
 
-      })
-
+   //    })
+    postService.getPosts().then(function(response){
+         $scope.arrayOfPosts = response;
+    });
 //TODO: hacer que el blog tambien se guarde en la cache
 
 
 })
 
-app.controller('detblogController', function($scope, $http) {
+app.controller('detblogController', function($scope, $http, idp) {
 // $scope.posts = [];
-   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+    // postService.getPosts().then(function(response){
+    //      $scope.arrayOfPosts1 = response;
+    // });
+       $scope.idp = idp;
+       $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'+idp).then(
       function (response){
-        $scope.arrayOfPosts = response.data.posts;
+        $scope.arrayOfPosts1 = response.data.posts;
         console.log(response.data.posts);
 
       })
-
 //TODO: hacer que el blog tambien se guarde en la cache
 
 
 })
 
+
+// app.factory('postService', function(){
+//   return function getAllpost(){
+//     $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+//       function (response){
+//         $scope.arrayOfPosts = response.data.posts;
+//         console.log(response.data.posts);
+
+//       })
+//   };
+// })
+
+app.factory('postService', ['$http', function($http) {
+    var all, odds = [];
+    var getPosts = function() {
+        return $http.get("https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/")
+        .then(function(response) {
+          all = response.records;
+          angular.forEach(all, function(c, i) {
+            if (i % 2 == 1) {
+              odds.push(c);
+            }
+          });
+          return odds
+        });
+    }
+    return {
+        getPosts: getPosts 
+    };
+}]);
 
 
 
