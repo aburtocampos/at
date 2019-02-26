@@ -15,7 +15,7 @@
       templateUrl : 'views/blog.html',
       controller  : 'blogController'
     })
-     .when('/detailPost', {
+     .when('/blog', {
       templateUrl : 'views/detailPost.html',
       controller  : 'detblogController'
     })
@@ -136,7 +136,7 @@ app.run(function($rootScope, $templateCache) {
 
 
 
-app.controller('blogController','postService', function($scope, $http,postService) {
+app.controller('blogController', function($scope, $http, wpFactory) {
 // $scope.posts = [];
    // $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
    //    function (response){
@@ -144,9 +144,19 @@ app.controller('blogController','postService', function($scope, $http,postServic
    //      console.log(response.data.posts);
 
    //    })
-    postService.getPosts().then(function(response){
-         $scope.arrayOfPosts = response;
+
+
+    wpFactory.getPosts(5).then(function (succ) {
+    $scope.arrayOfPosts = succ;
+    angular.forEach(succ, function(value, index) {
+      //$scope.setUrlForImage(index, value.featured_image);
     });
+    }, function error(err) {
+      console.log('Errror: ', err);
+    });
+    // postService.getPosts().then(function(response){
+    //      $scope.arrayOfPosts = response;
+    // });
 //TODO: hacer que el blog tambien se guarde en la cache
 
 
@@ -181,24 +191,45 @@ app.controller('detblogController', function($scope, $http, idp) {
 //   };
 // })
 
-app.factory('postService', ['$http', function($http) {
-    var all, odds = [];
-    var getPosts = function() {
-        return $http.get("https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/")
-        .then(function(response) {
-          all = response.records;
-          angular.forEach(all, function(c, i) {
-            if (i % 2 == 1) {
-              odds.push(c);
-            }
-          });
-          return odds
-        });
+app.factory('wpFactory', function ($http, $q){
+  var url = 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/';
+  function getPosts(number) {
+    return ($http.get(url + number)
+    .then(handleSuccess, handleError));
+  }
+  function handleSuccess(response) {
+    return response.data;
+  }
+  function handleError(response) {
+    if (!angular.isObject(response.data) || !response.data.message) {
+      return($q.reject("An unknown error occurred."));
     }
-    return {
-        getPosts: getPosts 
-    };
-}]);
+    return($q.reject(response.data.message));
+  }
+  return({
+    getPosts: getPosts,
+   // getMediaDataForId: getMediaDataForId
+  });
+})
+
+// app.factory('postService', ['$http', function($http) {
+//     var all, odds = [];
+//     var getPosts = function() {
+//         return $http.get("https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/")
+//         .then(function(response) {
+//           all = response.records;
+//           angular.forEach(all, function(c, i) {
+//             if (i % 2 == 1) {
+//               odds.push(c);
+//             }
+//           });
+//           return odds
+//         });
+//     }
+//     return {
+//         getPosts: getPosts 
+//     };
+// }]);
 
 
 
