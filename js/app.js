@@ -15,6 +15,10 @@
       templateUrl : 'views/blog.html',
       controller  : 'blogController'
     })
+     .when('/blog', {
+      templateUrl : 'views/detailPost.html',
+      controller  : 'detblogController'
+    })
      .when('/contact', {
       templateUrl : 'views/contact.html',
       controller  : 'contactController'
@@ -51,8 +55,7 @@ app.controller('homeController',['$scope','$location',function($scope,$location)
         return destination === $location.path();
      }
 
-    $scope.leyendas = 
-      {
+    $scope.leyendas = {
         titulo1:'Aburto Technologies',
         subtitulo1:'Calidad y pasión, por nuestro trabajo.',
         contenido1:'Agencia de Publicidad Digital',
@@ -134,6 +137,20 @@ app.run(function($rootScope, $templateCache) {
 
 
 app.controller('blogController', function($scope, $http) {
+// $scope.posts = [];
+   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+      function (response){
+        $scope.arrayOfPosts = response.data.posts;
+        console.log(response.data.posts);
+
+      })
+
+//TODO: hacer que el blog tambien se guarde en la cache
+
+
+})
+
+app.controller('detblogController', function($scope, $http) {
 // $scope.posts = [];
    $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
       function (response){
