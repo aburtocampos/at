@@ -167,13 +167,13 @@ app.controller('detblogController', function($scope, $http, idp) {
     // postService.getPosts().then(function(response){
     //      $scope.arrayOfPosts1 = response;
     // });
-       $scope.idp = idp;
-       $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'+idp).then(
-      function (response){
-        $scope.arrayOfPosts1 = response.data.posts;
-        console.log(response.data.posts);
+//        $scope.idp = idp;
+//        $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'+idp).then(
+//       function (response){
+//         $scope.arrayOfPosts1 = response.data.posts;
+//         console.log(response.data.posts);
 
-      })
+//       })
 //TODO: hacer que el blog tambien se guarde en la cache
 
 
