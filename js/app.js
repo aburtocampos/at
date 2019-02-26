@@ -162,7 +162,7 @@ app.controller('blogController', function($scope, $http, wpFactory) {
 
 })
 
-app.controller('detblogController', function($scope, $http, idp) {
+app.controller('detblogController', function($scope, $http) {
 // $scope.posts = [];
     // postService.getPosts().then(function(response){
     //      $scope.arrayOfPosts1 = response;
