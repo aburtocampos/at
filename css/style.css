@@ -34,7 +34,7 @@ h1,h2,h3,h4{
 
 
 .topview h1{
-	padding-top: 1rem;
+	padding-top: 0.3rem;
 }
 
 p{
@@ -133,7 +133,7 @@ height: 30px;
 }*/
 .carousel-inner {
 
-	height: 75vh;
+	height: auto;
 }
 .carousel-inner img{
 	width: 100%;
@@ -160,7 +160,7 @@ height: 30px;
 }
 
 .carousel-caption h4{
-	font-size: 200%;
+	font-size: 170%;
 	font-weight: 500;
 	text-shadow: 1px 1px 10px #000;
 	padding-bottom: 1rem;
@@ -453,11 +453,11 @@ textarea.form-control {
 @media (min-width: 576px) and (max-width: 768px) {
 		.carousel-caption{
 			position: absolute;
-			top: 38%;
+			top: 30%;
 		}
 
 		.carousel-indicators{
-			bottom: 20px;
+			bottom: 1%;
 		}
 
 		/*.carousel-control-next, .carousel-control-prev {
@@ -466,18 +466,17 @@ textarea.form-control {
 
 }
 
-@media(max-width: 576px){
+@media(min-width: 425px) and (max-width: 576px){
+		.carousel-inner {
 
-	.carousel-inner {
-
-			height: 32vh;
+			height: 30%;
 		}
 		.carousel-caption{
 			position: absolute;
-			top: 25%;
+			top: 33%;
 		}
 		.carousel-caption h1{
-			display: none;
+		
 			font-size: 150%;
 			text-transform: uppercase;
 			text-shadow: 1px 1px 10px #000;
@@ -507,7 +506,89 @@ textarea.form-control {
 		}
 
 		.carousel-indicators{
-			bottom: 5px;
+			bottom: 5%;
+		}
+
+		.rounded-circle.servicesimg{
+			height: 14rem;
+			width: 14rem;
+			margin-top: 1rem;
+		}
+
+		.quote{
+            text-align: justify;
+			font-size:medium;
+		}
+
+		.jumbotron{
+			display:none;
+			
+		}
+		.h3t p{
+			text-align: justify !important;
+		}
+
+		#ta {
+		    padding-bottom: 2rem;
+		    text-align: center !important;
+		    font-size: 130%;
+		}
+
+		.sizep {
+			font-size: 100%;
+			text-align:justify !important;
+		}
+		.h3t{
+			padding-top: 1rem;
+			font-size: 130%;
+		}
+		p{
+			text-align: justify;
+		}
+}
+
+@media(max-width: 424px){
+
+	   .carousel-inner {
+
+			height: 30%;
+		}
+		.carousel-caption{
+			position: absolute;
+			top: 23%;
+		}
+		.carousel-caption h1{
+		
+			font-size: 150%;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 10px #000;
+		}
+
+		.carousel-caption h3{
+			font-size: 140%;
+			font-weight: 500;
+			text-shadow: 1px 1px 10px #000;
+			padding-bottom: .2rem;
+		}
+
+		.carousel-caption h4{
+			font-size: 100%;
+			font-weight: 500;
+			text-shadow: 1px 1px 10px #000;
+			padding-bottom: .2rem;
+		}
+
+		.carousel-caption .btn{
+			font-size: 75%;
+			padding: 6px 12px;
+		}
+
+		.welcome h1{
+			font-size: 200%;
+		}
+
+		.carousel-indicators{
+			bottom: 5%;
 		}
 
 		.rounded-circle.servicesimg{
