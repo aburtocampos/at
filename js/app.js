@@ -136,24 +136,24 @@ app.run(function($rootScope, $templateCache) {
 
 
 
-app.controller('blogController', function($scope, $http, wpFactory) {
-// $scope.posts = [];
-   // $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
-   //    function (response){
-   //      $scope.arrayOfPosts = response.data.posts;
-   //      console.log(response.data.posts);
+app.controller('blogController', function($scope, $http) {
+$scope.posts = [];
+   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+      function (response){
+        $scope.arrayOfPosts = response.data.posts;
+        console.log(response.data.posts);
 
-   //    })
+      })
 
 
-    wpFactory.getPosts(5).then(function (succ) {
-    $scope.arrayOfPosts = succ;
-    angular.forEach(succ, function(value, index) {
-      //$scope.setUrlForImage(index, value.featured_image);
-    });
-    }, function error(err) {
-      console.log('Errror: ', err);
-    });
+//     wpFactory.getPosts(5).then(function (succ) {
+//     $scope.arrayOfPosts = succ;
+//     angular.forEach(succ, function(value, index) {
+//       //$scope.setUrlForImage(index, value.featured_image);
+//     });
+//     }, function error(err) {
+//       console.log('Errror: ', err);
+//     });
     // postService.getPosts().then(function(response){
     //      $scope.arrayOfPosts = response;
     // });
