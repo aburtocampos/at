@@ -15,7 +15,7 @@
       templateUrl : 'views/blog.html',
       controller  : 'blogController'
     })
-     .when('/blog', {
+     .when('/dblog', {
       templateUrl : 'views/detailPost.html',
       controller  : 'detblogController'
     })
@@ -136,81 +136,69 @@ app.run(function($rootScope, $templateCache) {
 
 
 
-app.controller('blogController','postService', function($scope, $http, postService) {
-//$scope.posts = [];
-//    $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
-//       function (response){
-        $scope.arrayOfPosts = postService.getAllpost();// response.data.posts;
-        console.log(postService.getAllpost());
-
-//       })
-
-
-//     wpFactory.getPosts(5).then(function (succ) {
-//     $scope.arrayOfPosts = succ;
-//     angular.forEach(succ, function(value, index) {
-//       //$scope.setUrlForImage(index, value.featured_image);
-//     });
-//     }, function error(err) {
-//       console.log('Errror: ', err);
-//     });
-    // postService.getPosts().then(function(response){
-    //      $scope.arrayOfPosts = response;
-    // });
-//TODO: hacer que el blog tambien se guarde en la cache
-
-
-})
-
-app.controller('detblogController', function($scope, $http) {
+app.controller('blogController', function($scope, $http) {
 // $scope.posts = [];
-    // postService.getPosts().then(function(response){
-    //      $scope.arrayOfPosts1 = response;
-    // });
-//        $scope.idp = idp;
-//        $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'+idp).then(
-//       function (response){
-//         $scope.arrayOfPosts1 = response.data.posts;
-//         console.log(response.data.posts);
-
-//       })
-//TODO: hacer que el blog tambien se guarde en la cache
-
-
-})
-
-
-app.factory('postService', function(){
-  return function getAllpost(){
-    $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
       function (response){
         $scope.arrayOfPosts = response.data.posts;
         console.log(response.data.posts);
 
       })
-  };
+
+//TODO: hacer que el blog tambien se guarde en la cache
+
+
 })
 
-// app.factory('wpFactory', function ($http, $q){
-//   var url = 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/';
-//   function getPosts(number) {
-//     return ($http.get(url + number)
-//     .then(handleSuccess, handleError));
-//   }
-//   function handleSuccess(response) {
-//     return response.data;
-//   }
-//   function handleError(response) {
-//     if (!angular.isObject(response.data) || !response.data.message) {
-//       return($q.reject("An unknown error occurred."));
-//     }
-//     return($q.reject(response.data.message));
-//   }
-//   return({
-//     getPosts: getPosts,
-//    // getMediaDataForId: getMediaDataForId
-//   });
+app.controller('detblogController', function($scope, $http, idp) {
+// $scope.posts = [];
+    // postService.getPosts().then(function(response){
+    //      $scope.arrayOfPosts1 = response;
+    // });
+       $scope.idp = idp;
+       $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'+idp).then(
+      function (response){
+        $scope.arrayOfPosts1 = response.data.posts;
+        console.log(response.data.posts);
+
+      })
+//TODO: hacer que el blog tambien se guarde en la cache
+
+
+})
+
+
+// app.factory('postService', function(){
+//   return function getAllpost(){
+//     $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
+//       function (response){
+//         $scope.arrayOfPosts = response.data.posts;
+//         console.log(response.data.posts);
+
+//       })
+//   };
 // })
+
+app.factory('wpFactory', function ($http, $q){
+  var url = 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/';
+  function getPosts(number) {
+    return ($http.get(url + number)
+    .then(handleSuccess, handleError));
+  }
+  function handleSuccess(response) {
+    return response.data;
+  }
+  function handleError(response) {
+    if (!angular.isObject(response.data) || !response.data.message) {
+      return($q.reject("An unknown error occurred."));
+    }
+    return($q.reject(response.data.message));
+  }
+  return({
+    getPosts: getPosts,
+   // getMediaDataForId: getMediaDataForId
+  });
+})
 
 // app.factory('postService', ['$http', function($http) {
 //     var all, odds = [];
