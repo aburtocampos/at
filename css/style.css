@@ -383,8 +383,10 @@ textarea.form-control {
 	    }
 
 	    .rounded-circle.servicesimg{
-			height: 17rem;
-			width: 17rem;
+			/*height: 17rem;
+			width: 17rem;*/
+			height: 14.5rem;
+			width: 14.5rem;
 		}
 
 		/*.carousel-control-next, .carousel-control-prev {
