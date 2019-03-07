@@ -141,8 +141,8 @@ app.controller('blogController', function($scope, $http) {
    $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
       function (response){
         $scope.arrayOfPosts = response.data.posts;
-        console.log(response.data.posts);
-
+        //console.log(response.data.posts);
+        //var texto = contenido.replace(/<[^>]*>?/g, '');
       })
 
 //TODO: hacer que el blog tambien se guarde en la cache
