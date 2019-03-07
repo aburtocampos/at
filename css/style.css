@@ -94,19 +94,32 @@ height: 30px;
 #mainMenu  .active a:hover,
 #mainMenu  .active a:focus{
 	color:#fff;
-	border-bottom:1px solid #fff;
+
+	/*border-bottom:1px solid #fff;*/
 }
 
-.nav-item{
+#mainMenu .nav-item{
 	text-align: center;
+	padding: 5px;
+}
+#mainMenu .nav-item i{
+	margin-right: 10px;
+}
+
+#mainMenu .nav-link{
+	padding-left: 20px !important;
+}
+
+.nav-item.last{
+	border-bottom:none !important;
 }
 
 .navbar{
 	padding: .5rem;
 }
 
-.navbar-nav li{
-	margin-right: 20px;
+#mainMenu .navbar-nav li{
+	margin-right: 0px;
 }
 
 .nav-link{
