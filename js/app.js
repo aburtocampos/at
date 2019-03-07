@@ -140,8 +140,10 @@ app.controller('blogController', function($scope, $http) {
 // $scope.posts = [];
    $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
       function (response){
+        $scope.postsContent = response.data.posts[].content;
         $scope.arrayOfPosts = response.data.posts;
-        //console.log(response.data.posts);
+        console.log(response.data.posts);
+        console.log(response.data.posts[].content);
         //var texto = contenido.replace(/<[^>]*>?/g, '');
       })
 
