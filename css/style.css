@@ -690,7 +690,7 @@ textarea.form-control {
 	}*/
 .parallax { 
     /* The image used */
-    background-image: url("../images/backg5p.png");
+    background-image: url("../images/webp/backg5p.webp");
 
     /* Set a specific height */
     height: 450px; 
