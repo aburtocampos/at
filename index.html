@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
+
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-<!-- pwa -->
+	<!-- pwa -->
 
-<meta name="description" content="Sitio Web de Agencia de Publicidad Digital">
-<meta name="theme-color" content="#028173">
-<meta name="MobileOptimized" content="width">
-<meta name="HandheldFriendly" content="true">
-<meta name="apple-mobile-wep-app-capable" content="yes">
-<meta name="apple-mobile-wep-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-wep-app-status-bar-style" content="black-translucent">
-<link rel="icon" type="image/png" href="images/logo3.png" />
-<link rel="apple-touch-icon" href="images/logo3.png" />
-<link rel="apple-touch-start-up-image" href="images/logo3.png" />
-<link rel="manifest" href="manifest.json">
+	<meta name="description" content="Sitio Web de Agencia de Publicidad Digital">
+	<meta name="theme-color" content="#028173">
+	<meta name="MobileOptimized" content="width">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="apple-mobile-wep-app-capable" content="yes">
+	<meta name="apple-mobile-wep-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-wep-app-status-bar-style" content="black-translucent">
+	<link rel="icon" type="image/png" href="images/logo3.png" />
+	<link rel="apple-touch-icon" href="images/logo3.png" />
+	<link rel="apple-touch-start-up-image" href="images/logo3.png" />
+	<link rel="manifest" href="manifest.json">
 
-<!-- pwa -->
+	<!-- pwa -->
 
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -26,181 +28,185 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Aburto Technologies</title>
 </head>
+
 <body ng-controller="homeController">
 
-						<header>
-								<!-- top -->
-								<div class="topheader fixed-top row">
-									<div class="col-6 pl-4">
-										<p>Agradecemos tu visita.</p>
-									</div>
-									<div class="col-6">
-										<div class="">
-											<ul class="nav justify-content-end">
-												<li class="nav-item text-center"><a href="https://www.facebook.com/aburto.tech" class="nav-link"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-												<li class="nav-item"><a href="https://twitter.com/aburto_tech" class="nav-link"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-												<li class="nav-item"><a href="https://www.instagram.com/aburto.tech/" class="nav-link"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-												<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-												<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-									</div>
+	<header class="fixed-top">
+		<!-- top -->
+		<div class="topheader fixed-top bg-dark">
+			<div class="row">
+				<div class="col-6 pl-4 d-none d-sm-block">
+					<p>Agradecemos tu visita.</p>
+				</div>
+				<div class="col-12 col-sm-6">
+					<div class="">
+						<ul class="nav">
+							<li class="nav-item text-center"><a href="https://www.facebook.com/aburto.tech"
+									class="nav-link"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li class="nav-item"><a href="https://twitter.com/aburto_tech" class="nav-link"><i
+										class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li class="nav-item"><a href="https://www.instagram.com/aburto.tech/" class="nav-link"><i
+										class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-youtube"
+										aria-hidden="true"></i></a></li>
+							<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin"
+										aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- navigation -->
+		<nav id="mainMenu" class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent  t shadow ">
+			<div class="container">
+				<a href="#" class="navbar-brand">
+					<img src="images/webp/logonuevo1.webp" alt="" height="50px" class="">
+				</a>
+				<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button> -->
 
-								</div>
-								<!-- navigation -->
-									<nav id="mainMenu" class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top t">
-										<div class="container-fluid">
-											<a href="#" class="navbar-brand">
-												<img src="images/webp/logonuevo1.webp" alt="" height="50px" class="">
-											</a>
-											<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-												<span class="navbar-toggler-icon"></span>
-											</button>
-											<div class="collapse navbar-collapse" id="navbarResponsive">
-												<ul class="navbar-nav ml-auto">
-													<li class="nav-item" ng-class="{active: isActive('/')}">
-														<a href="#!/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a>
-													</li>
-													<li class="nav-item" ng-class="{active: isActive('/about')}">
-														<a href="#!/about" class="nav-link"><i class="fa fa-question" aria-hidden="true"></i> Sobre Nosotros</a>
-													</li>
-													<li class="nav-item" ng-class="{active: isActive('/blog')}">
-														<a href="#!/blog" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i> Blog</a>
-													</li>
-													<li class="nav-item last" ng-class="{active: isActive('/contact')}">
-														<a href="#!/contact" class="nav-link"><i class="fa fa-search" aria-hidden="true"></i> Contactanos</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</nav>
-							</header>
+				<!-- icono animado -->
+				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</button>
 
-							   
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item" ng-class="{active: isActive('/')}">
+							<a href="#!/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a>
+						</li>
+						<li class="nav-item" ng-class="{active: isActive('/about')}">
+							<a href="#!/about" class="nav-link"><i class="fa fa-question" aria-hidden="true"></i> Sobre
+								Nosotros</a>
+						</li>
+						<li class="nav-item" ng-class="{active: isActive('/blog')}">
+							<a href="#!/blog" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i> Blog</a>
+						</li>
+						<li class="nav-item last" ng-class="{active: isActive('/contact')}">
+							<a href="#!/contact" class="nav-link"><i class="fa fa-search" aria-hidden="true"></i>
+								Contactanos</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 
 
-							<div ng-view></div>
 
 
-						<!-- two columns section -->
+	<div ng-view></div>
 
-						<!-- connect -->
 
-						<!-- footer -->
-						<footer class="footer ">
-							<div class="container-fluid padding">
-								<div class="row text-center">
-									<div class="col-md-4">
-										<a href="#!/">
-											<img src="images/webp/logonuevo1.webp" class="img-fluid" alt="" width="200px">
-										</a>
-										
-										<hr class="light">
-					
-												<a class="lead" href="tel:88503574">
-													<span class="badge badge-pill badge-light">
-														<i class="fa fa-volume-control-phone" aria-hidden="true"></i>  505-8850-3574
-													</span>
-											    </a>
-								
-												<a class="lead" href="mailto:aburtotechnologies@gmail.com">
-													<span class="badge badge-pill badge-light">
-														<i class="fa fa-envelope" aria-hidden="true"></i>  aburtotechnologies@gmail.com
-													</span>
-											    </a>
-								
-							
-												
-									
-									  
-									</div>
+	<!-- two columns section -->
 
-									<div class="col-md-4">
-<!-- 										<hr class="light">
-										<h5>Our Hours</h5>
-										<hr class="light">
-										<p>555-555-5555</p>
-										<p>aburtotechnologies@gmail.com</p>
-										<p>Jinotepe, Carazo</p> -->
-									</div>
+	<!-- connect -->
 
-									<div class="col-md-4">
-										<hr class="light">
-										<h5>Redes Sociales</h5>
-										<hr class="light">
-										<div id="footersocial">
-											<ul class="nav justify-content-center">
-												<li class="nav-item">
-													<a href="https://www.facebook.com/aburto.tech" class="nav-link  icon">
-														<i class="fa fa-facebook" aria-hidden="true"></i>
-													</a>
-												</li>
-												<li class="nav-item" >
-													<a href="https://twitter.com/aburto_tech" class="nav-link  icon">
-														<i class="fa fa-twitter" aria-hidden="true"></i>
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="https://www.instagram.com/aburto.tech/" class="nav-link icon">
-														<i class="fa fa-instagram" aria-hidden="true"></i>
-													</a>
-												</li>
-												<li class="nav-item">
-													<a href="#" class="nav-link icon">
-														<i class="fa fa-youtube" aria-hidden="true"></i>
-													</a>
-												</li>
-												<li class="nav-item" >
-													<a href="#" class="nav-link icon">
-														<i class="fa fa-linkedin" aria-hidden="true"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
+	<!-- footer -->
+	<footer class="footer">
+		<div class="container padding">
+			<div class="row text-center">
+				<div class="col-md-6 colizq">
+					<a href="#!/">
+						<img src="images/webp/logonuevo1.webp" class="img-fluid" alt="" width="200px">
+					</a>
 
-									<div class="col-12">
-										<hr class="light">
-										<h5>&copy; bit.ly/aburtech</h5>
-									</div>
+
+
+					<a class="lead d-block" href="tel:88503574">
+						<span class="badge badge-pill badge-light">
+							<i class="fa fa-volume-control-phone" aria-hidden="true"></i> 505-8850-3574
+						</span>
+					</a>
+
+					<a class="lead d-block" href="mailto:aburtotechnologies@gmail.com">
+						<span class="badge badge-pill badge-light">
+							<i class="fa fa-envelope" aria-hidden="true"></i> aburtotechnologies@gmail.com
+						</span>
+					</a>
+
+
+
+
+
+				</div>
+
+				<div class="col-md-6 colder">
+					<hr class="light d-md-none d-lg-none d-xl-none">
+					<h4>Redes Sociales</h4>
+
+					<div id="footersocial text-right">
+						<ul class="nav">
+							<li class="nav-item">
+								<a href="https://www.facebook.com/aburto.tech" class="nav-link  icon">
+									<i class="fa fa-facebook" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="https://twitter.com/aburto_tech" class="nav-link  icon">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="https://www.instagram.com/aburto.tech/" class="nav-link icon">
+									<i class="fa fa-instagram" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-12">
+					<hr class="light ">
+					<h5>&copy; bit.ly/aburtech</h5>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Jinotepe, Carazo</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 modal_body_content">
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 modal_body_map">
+							<div class="location-map" id="location-map">
+								<div style="width: 100%; height: 100%;" id="map_canvas">
+									<iframe
+										src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9022.77431537112!2d-86.19911535472788!3d11.849995033524566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sni!4v1541448378382"
+										width="798px" height="450px" frameborder="0" style="border:0"
+										allowfullscreen></iframe>
 								</div>
 							</div>
-						</footer>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 modal_body_end">
 
-	
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-         <h4 class="modal-title" id="myModalLabel">Jinotepe, Carazo</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-         
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-12 modal_body_content">
-            
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 modal_body_map">
-              <div class="location-map" id="location-map">
-                <div style="width: 100%; height: 100%;" id="map_canvas">
-                	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9022.77431537112!2d-86.19911535472788!3d11.849995033524566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sni!4v1541448378382" width="798px" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 modal_body_end">
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<script src="js/jquery-3.3.1.min.js"></script>
@@ -210,31 +216,31 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
-<!-- 	<script src="js/bootstrap-swipe-carousel.js"></script> -->
+	<!-- 	<script src="js/bootstrap-swipe-carousel.js"></script> -->
 	<script src="js/app.js"></script>
 	<script src="js/script.js"></script>
-<!-- 	 <script src="js/apimap.js"></script>
+	<!-- 	 <script src="js/apimap.js"></script>
 	<script src="js/map.js"></script> -->
 
 
 	<script>
 		//para cargar push the page to botton on mobile
-		(function($) {
-		    var $window = $(window),
-		        $html = $('#mainMenu');
+		(function ($) {
+			var $window = $(window),
+				$html = $('#mainMenu');
 
-		    function resize() {
-		        if ($window.width() > 768) {
-		            return $html.addClass('fixed-top');
-		        }else{
-		        	$html.removeClass('fixed-top');
-		        }
-		    }
+			function resize() {
+				if ($window.width() > 768) {
+					return $html.addClass('fixed-top');
+				} else {
+					$html.removeClass('fixed-top');
+				}
+			}
 
-		    $window
-		        .resize(resize)
-		        .trigger('resize');
-			})(jQuery);
+			$window
+				.resize(resize)
+				.trigger('resize');
+		})(jQuery);
 
 			// $(window).scroll(function() {    
 			//     var scroll = $(window).scrollTop();
@@ -245,8 +251,9 @@
 			//         $(".top-nav").removeClass("light-header");
 			//     }
 			// });
-	   
+
 	</script>
 
 </body>
+
 </html>
