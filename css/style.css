@@ -123,10 +123,6 @@ p {
   font-family: "Poppins";
 }
 
-.t {
-  margin-top: 30px;
-}
-
 .topheader.row {
   margin: 0px;
 }
@@ -311,8 +307,8 @@ a.icon:hover i {
   color: #ffffff;
 }
 
-a.nav-link {
-  padding: 0px;
+footer a.nav-link {
+  padding: 5px;
 }
 
 /**/
@@ -473,7 +469,7 @@ textarea.form-control {
 #ta {
   padding-bottom: 1rem;
   text-align: center !important;
-  font-size: 130%;
+  font-size: 170%;
   padding-top: 1rem;
 }
 
@@ -521,7 +517,7 @@ p {
 
 .banner {
   width: 100%;
-height: 100%;
+  height: 100%;
   position: relative;
 }
 
@@ -569,6 +565,13 @@ a.icon {
   margin-right: 0px;
 }
 
+.porque .coli {
+  padding: 25px;
+  border: 0px solid var(--verde);
+}
+#mainMenu .t {
+  margin-top: 0px;
+}
 /********************************************************************contact ends***************************************************************/
 
 /*media queries*/
@@ -619,10 +622,6 @@ a.icon {
     font-size: 30px;
   }
 
-  a.nav-link {
-    padding: 4px;
-  }
-
   a.icon {
     width: 50px;
     height: 50px;
@@ -631,6 +630,19 @@ a.icon {
     border: 2px solid #028173;
     border-radius: 50%;
     margin-right: 5px;
+  }
+  .porque .coli {
+    padding: 35px;
+    border: 1px solid var(--verde);
+  }
+
+  .porque .cold {
+    padding: 20px 0px;
+    text-align: center;
+  }
+
+  .porque .cold img {
+    width: 90%;
   }
 }
 
@@ -664,6 +676,22 @@ a.icon {
   footer .nav {
     justify-content: flex-end !important;
   }
+
+  .welcome {
+    padding-top: 0rem;
+  }
+
+  #mainMenu.t {
+    margin-top: 30px;
+  }
+
+  .porque .coli {
+    padding: 7px;
+  }
+
+  .porque .cold img {
+    width: 90%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -691,6 +719,17 @@ a.icon {
     padding: 12px 60px;
     margin: 0 auto;
     width: fit-content;
+  }
+
+  .porque .coli {
+    padding: 25px;
+  }
+  .porque .cold {
+    padding: 0px 20px;
+  }
+
+  .porque .cold img {
+    width: 100%;
   }
 }
 
