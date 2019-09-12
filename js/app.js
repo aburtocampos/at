@@ -1,32 +1,33 @@
- var app = angular.module('myApp', ['ngRoute']);
-  
-  app.config(function($routeProvider) {
+var app = angular.module("myApp", ["ngRoute"]);
 
+app.config(function($routeProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl : 'views/home.html',
-      controller  : 'homeController'
+    .when("/", {
+      templateUrl: "views/home.html",
+      controller: "homeController"
     })
-     .when('/about', {
-      templateUrl : 'views/about.html',
-      controller  : 'aboutController'
+    .when("/about", {
+      templateUrl: "views/about.html",
+      controller: "aboutController"
     })
-    .when('/blog', {
-      templateUrl : 'views/blog.html',
-      controller  : 'blogController'
+    .when("/blog", {
+      templateUrl: "views/blog.html",
+      controller: "blogController"
     })
-     .when('/dblog', {
-      templateUrl : 'views/detailPost.html',
-      controller  : 'detblogController'
+    .when("/dblog", {
+      templateUrl: "views/detailPost.html",
+      controller: "detblogController"
     })
-     .when('/contact', {
-      templateUrl : 'views/contact.html',
-      controller  : 'contactController'
+    .when("/contact", {
+      templateUrl: "views/contact.html",
+      controller: "contactController"
     })
-     .when('/addpost', {
-      templateUrl : 'views/addPost.html',
-      controller  : 'addpostController'
+    .when("/addpost", {
+      templateUrl: "views/addPost.html",
+      controller: "addpostController"
     })
+    //var contenido = '<p>Lorem ipsum...</p>';
+
     // .when('/', {
     //   resolve:{
     //     "check": function($location){
@@ -37,64 +38,39 @@
     //   },
 
     //   templateUrl : 'view/home.html'
-    
+
     //  // controller  : 'homeController'
     // })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: "/"
     });
-
 });
-
 
 // Controladores
 
-
-app.controller('homeController',['$scope','$location',function($scope,$location){
-    $scope.isActive = function(destination){
-        return destination === $location.path();
-     }
+app.controller("homeController", [
+  "$scope",
+  "$location",
+  function($scope, $location) {
+    $scope.isActive = function(destination) {
+      return destination === $location.path();
+    };
 
     $scope.leyendas = {
-        titulo1:'Aburto Technologies',
-        subtitulo1:'Calidad y pasión, por nuestro trabajo.',
-        contenido1:'Agencia de Publicidad Digital',
-     
-        titulo2:'Diseño Web',
-        subtitulo2:'Calidad y pasión, por nuestro trabajo.',
-        contenido2:'Agencia de Publicidad Digital',
+      titulo1: "Aburto Technologies",
+      subtitulo1: "Calidad y pasión, por nuestro trabajo.",
+      contenido1: "Agencia Digital de Diseño y Desarrollo Web"
+    };
+  }
+]);
 
-        titulo3:'Manejo de Redes Sociales',
-        subtitulo3:'Calidad y pasión, por nuestro trabajo.',
-        contenido3:'Agencia de Publicidad Digital'
-      }
-
-
-
-}]);
-
-app.controller('aboutController', function($scope){
-
-
-});
+app.controller("aboutController", function($scope) {});
 
 app.run(function($rootScope, $templateCache) {
-   $rootScope.$on('$viewContentLoaded', function() {
-      $templateCache.removeAll();
-   });
+  $rootScope.$on("$viewContentLoaded", function() {
+    $templateCache.removeAll();
+  });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // app.controller('blogController', ['$scope', '$http', function($scope, $http) {
 
@@ -105,7 +81,6 @@ app.run(function($rootScope, $templateCache) {
 //   }).then(function successCallback(response) {
 //       console.log(response.posts);
 //       $scope.posts = response.posts;
-   
 
 //   }, function errorCallback(response) {
 
@@ -134,47 +109,40 @@ app.run(function($rootScope, $templateCache) {
 
 // }]);
 
+app.controller("blogController", function($scope, $http) {
+  // $scope.posts = [];
+  $http
+    .get(
+      "https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/"
+    )
+    .then(function(response) {
+      $scope.arrayOfPosts = response.data.posts;
+      console.log(response.data.posts);
 
+      //var contenido = '<p>Lorem ipsum...</p>';
+      //var texto = contenido.replace(/<[^>]*>?/g, '');
+    });
 
-app.controller('blogController', function($scope, $http) {
-// $scope.posts = [];
-   $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/').then(
-      function (response){
-      //  $scope.postsContent = response.data.posts[].content;
-        $scope.arrayOfPosts = response.data.posts;
-        console.log(response.data.posts);
-      //  console.log(response.data.posts[].content);
-        //var texto = contenido.replace(/<[^>]*>?/g, '');
-      })
- 
- 
+  //TODO: hacer que el blog tambien se guarde en la cache
+});
 
-//TODO: hacer que el blog tambien se guarde en la cache
-
-
-})
-  app.filter('removeHTMLTags', function () {
-    return function (text) {
-      return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-    };
-  })
-app.controller('detblogController', function($scope, $http, idp) {
-// $scope.posts = [];
-    // postService.getPosts().then(function(response){
-    //      $scope.arrayOfPosts1 = response;
-    // });
-       $scope.idp = idp;
-       $http.get('https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/'+idp).then(
-      function (response){
-        $scope.arrayOfPosts1 = response.data.posts;
-        console.log(response.data.posts);
-
-      })
-//TODO: hacer que el blog tambien se guarde en la cache
-
-
-})
-
+app.controller("detblogController", function($scope, $http, idp) {
+  // $scope.posts = [];
+  // postService.getPosts().then(function(response){
+  //      $scope.arrayOfPosts1 = response;
+  // });
+  $scope.idp = idp;
+  $http
+    .get(
+      "https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/" +
+        idp
+    )
+    .then(function(response) {
+      $scope.arrayOfPosts1 = response.data.posts;
+      console.log(response.data.posts);
+    });
+  //TODO: hacer que el blog tambien se guarde en la cache
+});
 
 // app.factory('postService', function(){
 //   return function getAllpost(){
@@ -187,26 +155,26 @@ app.controller('detblogController', function($scope, $http, idp) {
 //   };
 // })
 
-app.factory('wpFactory', function ($http, $q){
-  var url = 'https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/';
+app.factory("wpFactory", function($http, $q) {
+  var url =
+    "https://public-api.wordpress.com/rest/v1.1/sites/aburtotech.wordpress.com/posts/";
   function getPosts(number) {
-    return ($http.get(url + number)
-    .then(handleSuccess, handleError));
+    return $http.get(url + number).then(handleSuccess, handleError);
   }
   function handleSuccess(response) {
     return response.data;
   }
   function handleError(response) {
     if (!angular.isObject(response.data) || !response.data.message) {
-      return($q.reject("An unknown error occurred."));
+      return $q.reject("An unknown error occurred.");
     }
-    return($q.reject(response.data.message));
+    return $q.reject(response.data.message);
   }
-  return({
-    getPosts: getPosts,
-   // getMediaDataForId: getMediaDataForId
-  });
-})
+  return {
+    getPosts: getPosts
+    // getMediaDataForId: getMediaDataForId
+  };
+});
 
 // app.factory('postService', ['$http', function($http) {
 //     var all, odds = [];
@@ -223,13 +191,8 @@ app.factory('wpFactory', function ($http, $q){
 //         });
 //     }
 //     return {
-//         getPosts: getPosts 
+//         getPosts: getPosts
 //     };
 // }]);
 
-
-
-
-app.controller('contactController',function($scope){
-  
-});
+app.controller("contactController", function($scope) {});
