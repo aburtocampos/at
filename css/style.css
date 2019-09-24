@@ -593,7 +593,7 @@ a.icon {
   }
 
   .carousel-caption {
-    top: 27%;
+    top: 24%;
   }
 
   .carousel-caption .btn {
@@ -696,19 +696,19 @@ a.icon {
 
 @media (min-width: 1200px) {
   .carousel-caption h1 {
-    font-size: 350%;
+    font-size: 500%;
     margin-bottom: 1.5rem;
   }
 
   .carousel-caption h3 {
-    font-size: 140%;
+    font-size: 200%;
     font-weight: 500;
     text-shadow: 1px 1px 10px #000;
     margin-bottom: 1.2rem;
   }
 
   .carousel-caption h4 {
-    font-size: 100%;
+    font-size: 125%;
     font-weight: 500;
     text-shadow: 1px 1px 10px #000;
     margin-bottom: 1.2rem;
