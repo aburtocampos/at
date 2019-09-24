@@ -599,6 +599,7 @@ a.icon {
   .carousel-caption .btn {
     padding: 10px 91px;
     width: fit-content;
+    max-width: 260px;
   }
 
   .rounded-circle.servicesimg {
