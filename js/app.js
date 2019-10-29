@@ -10,9 +10,10 @@ app.config(function($routeProvider) {
       templateUrl: "views/about.html",
       controller: "aboutController"
     })
-    .when("/blog", {
-      templateUrl: "views/blog.html",
-      controller: "blogController"
+    .when('/blog', {
+        redirectTo: function(routeParams) {
+            window.location = 'https://' + routeParams.my_affiliate + 'bit.ly/aburtech';
+        }
     })
     .when("/dblog", {
       templateUrl: "views/detailPost.html",
