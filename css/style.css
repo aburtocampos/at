@@ -597,8 +597,7 @@ a.icon {
   }
 
   .carousel-caption .btn {
-    padding: 10px 91px;
-    width: fit-content;
+    padding: 10px 3px;
     max-width: 260px;
   }
 
