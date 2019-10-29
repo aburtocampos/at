@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
     })
     .when('/blog', {
         redirectTo: function(routeParams) {
-            window.location = 'https://' + routeParams.my_affiliate + 'bit.ly/aburtech';
+            window.location.href = 'https://bit.ly/aburtech';
         }
     })
     .when("/dblog", {
