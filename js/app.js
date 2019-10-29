@@ -11,8 +11,8 @@ app.config(function($routeProvider) {
       controller: "aboutController"
     })
     .when('/blog', {
-        redirectTo: function(routeParams) {
-            window.location.href = 'https://bit.ly/aburtech';
+        redirectTo: function() {
+            window.location.href = 'https://aburtito.com';
         }
     })
     .when("/dblog", {
